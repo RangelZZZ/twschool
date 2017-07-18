@@ -7,7 +7,7 @@ module.exports = function countSameElements(collection) {
         if (collection[i].length > 1) {
             const count = collection[i].replace(/[^0-9]/ig, "");
             const element = collection[i].split('')[0];
-            collection.splice(i, 1);
+            collection.splice(i, 1, element);
             middleConnection = generateNewCollection(element, count, middleConnection);
         }
     }
@@ -17,7 +17,7 @@ module.exports = function countSameElements(collection) {
 };
 
 function generateNewCollection(element, count, middleConnection) {
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count - 1; i++) {
         middleConnection.push(element);
     }
 
@@ -26,7 +26,6 @@ function generateNewCollection(element, count, middleConnection) {
 
 function generateResultCollection(collection, middleConnection) {
     const resultArray = [];
-
     const resultCollection = collection.concat(middleConnection);
 
     for (let i = 0; i < resultCollection.length; i++) {
