@@ -3,11 +3,22 @@
 module.exports = function collectSameElements(collectionA, collectionB) {
     const resultArray = [];
     
-    collectionA.forEach(element=>{
-        if(collectionB.find(item=> item === element)){
-            resultArray.push(element);
+    for (let i = 0; i < collectionA.length; i++) {
+        if (isExist(collectionA[i], collectionB)) {
+            resultArray.push(collectionA[i]);
         }
-    });
+    }
 
     return resultArray;
 };
+
+function isExist(element, collection) {
+    for (let i = 0; i < collection.length; i++) {
+        if (collection[i] === element) {
+            return true;
+        }
+    }
+
+    return false;
+
+}
