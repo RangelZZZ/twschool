@@ -1,6 +1,6 @@
 'use strict';
 
-describe('pos', () => {
+describe(' Integration pos', () => {
 
   it('should print text', () => {
 
@@ -30,4 +30,44 @@ describe('pos', () => {
 
     expect(console.log).toHaveBeenCalledWith(expectText);
   });
+});
+
+describe("unit pos", () => {
+  it("should build cartItems", () => {
+    const allItems = loadAllItems();
+    const tags = [
+      'ITEM000001',
+      'ITEM000001',
+      'ITEM000001',
+      'ITEM000001',
+      'ITEM000001',
+      'ITEM000003-2.5',
+      'ITEM000005',
+      'ITEM000005-2',
+    ];
+
+    const expectCartItems = [{
+      barcode: 'ITEM000001',
+      name: '雪碧',
+      unit: '瓶',
+      price: 3.00,
+      count: 5
+    }, {
+      barcode: 'ITEM000003',
+      name: '荔枝',
+      unit: '斤',
+      price: 15.00,
+      count: 2.5
+    }, {
+      barcode: 'ITEM000005',
+      name: '方便面',
+      unit: '袋',
+      price: 4.50,
+      count: 3
+    }];
+
+    const cartItems = buildCartItems(tags, allItems);
+
+    expect(cartItems).toEqual(expectCartItems);
+  })
 });
