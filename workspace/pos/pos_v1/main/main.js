@@ -7,13 +7,14 @@ function printReceipt(tags) {
   const promotions = loadPromotions();
   const receiptItems = buildReceiptItems(promotions, cartItems);
 
-  const receiptText = buildReceitpText(receiptItems);
+  const receiptText = buildReceiptText(receiptItems);
 
   console.log(receiptText);
 }
 
 function buildCartItems(tags, allItems) {
   const cartItems = [];
+
   for (const tag of tags) {
     const tagArray = tag.split('-');
     const barcode = tagArray[0];
@@ -53,10 +54,11 @@ function buildReceiptItems(promotions, cartItems) {
   let subTotal;
   let savedTotal;
   let total;
+
   for (let i = 0; i < cartItems.length; i++) {
     if (isExist(promotions, cartItems[i].barcode)) {
       total = parseFloat(cartItems[i].price * cartItems[i].count);
-      subTotal = parseFloat(cartItems[i].price * (cartItems[i].count - parseInt(cartItems[i].count/3)));
+      subTotal = parseFloat(cartItems[i].price * (cartItems[i].count - parseInt(cartItems[i].count / 3)));
       savedTotal = parseFloat(total - subTotal);
     } else {
       savedTotal = 0;
@@ -70,7 +72,6 @@ function buildReceiptItems(promotions, cartItems) {
 }
 
 function isExist(promotions, barcode) {
-
   for (let i = 0; i < promotions[0].barcodes.length; i++) {
     if (promotions[0].barcodes[i] === barcode) {
       return true;
@@ -78,4 +79,23 @@ function isExist(promotions, barcode) {
   }
 
   return false;
+}
+
+function buildReceiptText(receiptItems) {
+  let total = 0;
+  let savedTotal = 0;
+  let receiptText = "***<没钱赚商店>收据***\n";
+
+  for (let i = 0; i < receiptItems.length; i++) {
+    receiptText += `名称：${receiptItems[i].cartItem.name}，数量：${receiptItems[i].cartItem.count}${receiptItems[i].cartItem.unit}，单价：${(receiptItems[i].cartItem.price).toFixed(2)}(元)，小计：${(receiptItems[i].subTotal).toFixed(2)}(元)\n`;
+    savedTotal += receiptItems[i].savedTotal;
+    total += receiptItems[i].subTotal;
+  }
+
+  receiptText += `----------------------
+总计：${total.toFixed(2)}(元)
+节省：${savedTotal.toFixed(2)}(元)
+**********************`;
+
+  return receiptText;
 }
