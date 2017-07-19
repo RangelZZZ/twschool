@@ -15,87 +15,22 @@ function printReceipt(tags) {
 function buildCartItems(tags, allItems) {
   const cartItems = [];
 
-  for (const tag of tags) {
-    const tagArray = tag.split('-');
-    const barcode = tagArray[0];
-    const count = parseFloat(tagArray[1] || 1);
-    const cartItem = findCartItem(cartItems, barcode);
+  tags.forEach(tag => {
+    let barcodeArray = tag.split("-");
+    let barcode = barcodeArray[0];
+    let count = parseFloat(barcodeArray[1]) || 1;
+    let cartItem = cartItems.find(item => item.barcode === barcode);
+
     if (cartItem) {
       cartItem.count += count;
     } else {
-      const item = findItem(allItems, barcode);
-      cartItems.push({barcode: item.barcode, name: item.name, unit: item.unit, price: item.price, count: count});
+      let item = allItems.find(item => item.barcode === barcode);
+      if (item) {
+        cartItems.push({barcode: item.barcode, name: item.name, price: item.price, unit: item.unit, count: count});
+      }
     }
-  }
+  });
+
   return cartItems;
-}
 
-
-function findCartItem(cartItems, barcode) {
-  for (let i = 0; i < cartItems.length; i++) {
-    if (cartItems[i].barcode === barcode) {
-      return cartItems[i];
-    }
-  }
-
-  return false;
-}
-
-function findItem(allItems, barcode) {
-  for (let i = 0; i < allItems.length; i++) {
-    if (allItems[i].barcode === barcode) {
-      return allItems[i];
-    }
-  }
-}
-
-function buildReceiptItems(promotions, cartItems) {
-  let receiptItems = [];
-  let subTotal;
-  let savedTotal;
-  let total;
-
-  for (let i = 0; i < cartItems.length; i++) {
-    if (isExist(promotions, cartItems[i].barcode)) {
-      total = parseFloat(cartItems[i].price * cartItems[i].count);
-      subTotal = parseFloat(cartItems[i].price * (cartItems[i].count - parseInt(cartItems[i].count / 3)));
-      savedTotal = parseFloat(total - subTotal);
-    } else {
-      savedTotal = 0;
-      subTotal = parseFloat((cartItems[i].count * cartItems[i].price));
-    }
-
-    receiptItems.push({cartItem: cartItems[i], savedTotal: savedTotal, subTotal: subTotal});
-  }
-
-  return receiptItems;
-}
-
-function isExist(promotions, barcode) {
-  for (let i = 0; i < promotions[0].barcodes.length; i++) {
-    if (promotions[0].barcodes[i] === barcode) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-function buildReceiptText(receiptItems) {
-  let total = 0;
-  let savedTotal = 0;
-  let receiptText = "***<没钱赚商店>收据***\n";
-
-  for (let i = 0; i < receiptItems.length; i++) {
-    receiptText += `名称：${receiptItems[i].cartItem.name}，数量：${receiptItems[i].cartItem.count}${receiptItems[i].cartItem.unit}，单价：${(receiptItems[i].cartItem.price).toFixed(2)}(元)，小计：${(receiptItems[i].subTotal).toFixed(2)}(元)\n`;
-    savedTotal += receiptItems[i].savedTotal;
-    total += receiptItems[i].subTotal;
-  }
-
-  receiptText += `----------------------
-总计：${total.toFixed(2)}(元)
-节省：${savedTotal.toFixed(2)}(元)
-**********************`;
-
-  return receiptText;
 }
