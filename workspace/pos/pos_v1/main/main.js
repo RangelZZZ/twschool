@@ -37,7 +37,7 @@ function buildCartItems(tags, allItems) {
 
 
 function buildReceiptItems(promotions, cartItems) {
-  let [subTotal, savedTotal, total] = [0,0,0];
+  let [subTotal, savedTotal, total] = [0, 0, 0];
 
   return cartItems.map(cartItem => {
     promotions.forEach(promotion => {
@@ -59,9 +59,8 @@ function buildReceiptItems(promotions, cartItems) {
 
 function buildReceiptText(receiptItems) {
   let receiptText = "***<没钱赚商店>收据***\n";
-  let total = 0;
-  let savedTotal = 0;
-
+  let [total, savedTotal] = [0, 0];
+  
   receiptItems.forEach(receiptItem => {
     total += receiptItem.subTotal;
     savedTotal += receiptItem.savedTotal;
