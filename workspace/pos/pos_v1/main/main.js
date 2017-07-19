@@ -37,9 +37,7 @@ function buildCartItems(tags, allItems) {
 
 
 function buildReceiptItems(promotions, cartItems) {
-  let subTotal = 0;
-  let total = 0;
-  let savedTotal = 0;
+  let [subTotal, savedTotal, total] = [0,0,0];
 
   return cartItems.map(cartItem => {
     promotions.forEach(promotion => {
