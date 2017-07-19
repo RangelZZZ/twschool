@@ -26,7 +26,7 @@ function buildCartItems(tags, allItems) {
     } else {
       let item = allItems.find(item => item.barcode === barcode);
       if (item) {
-        cartItems.push({barcode: item.barcode, name: item.name, price: item.price, unit: item.unit, count: count});
+        cartItems.push({barcode: item.barcode, name: item.name, price: item.price, unit: item.unit, count});
       }
     }
   });
@@ -55,8 +55,8 @@ function buildReceiptItems(promotions, cartItems) {
       }
     });
 
-    return {cartItem: cartItem, savedTotal: savedTotal, subTotal: subTotal};
-  })
+    return {cartItem, savedTotal, subTotal};
+  });
 }
 
 function buildReceiptText(receiptItems) {
