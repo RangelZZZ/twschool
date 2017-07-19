@@ -58,3 +58,21 @@ function buildReceiptItems(promotions, cartItems) {
     return {cartItem: cartItem, savedTotal: savedTotal, subTotal: subTotal};
   })
 }
+
+function buildReceiptText(receiptItems) {
+  let receiptText = "***<没钱赚商店>收据***\n";
+  let total = 0;
+  let savedTotal = 0;
+
+  receiptItems.forEach(receiptItem => {
+    total += receiptItem.subTotal;
+    savedTotal += receiptItem.savedTotal;
+    receiptText += `名称：${receiptItem.cartItem.name}，数量：${receiptItem.cartItem.count}${receiptItem.cartItem.unit}，单价：${receiptItem.cartItem.price.toFixed(2)}(元)，小计：${receiptItem.subTotal.toFixed(2)}(元)\n`;
+  });
+
+  return receiptText += `----------------------
+总计：${total.toFixed(2)}(元)
+节省：${savedTotal.toFixed(2)}(元)
+**********************`;
+}
+
