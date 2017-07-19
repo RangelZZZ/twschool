@@ -69,5 +69,68 @@ describe("unit pos", () => {
     const cartItems = buildCartItems(tags, allItems);
 
     expect(cartItems).toEqual(expectCartItems);
-  })
+  });
+
+  it("should build receiptItems", () => {
+
+    const promotions = loadPromotions();
+
+    const cartItems = [{
+      barcode: 'ITEM000001',
+      name: '雪碧',
+      unit: '瓶',
+      price: 3.00,
+      count: 5
+    }, {
+      barcode: 'ITEM000003',
+      name: '荔枝',
+      unit: '斤',
+      price: 15.00,
+      count: 2.5
+    }, {
+      barcode: 'ITEM000005',
+      name: '方便面',
+      unit: '袋',
+      price: 4.50,
+      count: 3
+    }];
+
+    const expectReceiptItems = [{
+      cartItem: {
+        barcode: 'ITEM000001',
+        name: '雪碧',
+        unit: '瓶',
+        price: 3.00,
+        count: 5
+      },
+        subTotal: 12,
+        savedTotal: 3
+    }, {
+      cartItem: {
+        barcode: 'ITEM000003',
+        name: '荔枝',
+        unit: '斤',
+        price: 15.00,
+        count: 2.5
+      },
+        subTotal: 37.5,
+        savedTotal: 0
+
+    }, {
+      cartItem: {
+        barcode: 'ITEM000005',
+        name: '方便面',
+        unit: '袋',
+        price: 4.50,
+        count: 3
+      }, 
+        subTotal: 9,
+        savedTotal: 4.5
+      }
+    ];
+
+    const receiptItems = buildReceiptItems(promotions, cartItems);
+
+    expect(receiptItems).toEqual(expectReceiptItems);
+  });
 });

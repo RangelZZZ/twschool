@@ -5,7 +5,7 @@ function printReceipt(tags) {
   const cartItems = buildCartItems(tags, allItems);
 
   const promotions = loadPromotions();
-  const receiptItems = buidReceiptItems(promotions, cartItems);
+  const receiptItems = buildReceiptItems(promotions, cartItems);
 
   const receiptText = buildReceitpText(receiptItems);
 
@@ -23,7 +23,7 @@ function buildCartItems(tags, allItems) {
       cartItem.count += count;
     } else {
       const item = findItem(allItems, barcode);
-      cartItems.push({barcode:item.barcode,name:item.name,unit:item.unit,price:item.price,count: count});
+      cartItems.push({barcode: item.barcode, name: item.name, unit: item.unit, price: item.price, count: count});
     }
   }
   return cartItems;
@@ -46,4 +46,36 @@ function findItem(allItems, barcode) {
       return allItems[i];
     }
   }
+}
+
+function buildReceiptItems(promotions, cartItems) {
+  let receiptItems = [];
+  let subTotal;
+  let savedTotal;
+  let total;
+  for (let i = 0; i < cartItems.length; i++) {
+    if (isExist(promotions, cartItems[i].barcode)) {
+      total = parseFloat(cartItems[i].price * cartItems[i].count);
+      subTotal = parseFloat(cartItems[i].price * (cartItems[i].count - parseInt(cartItems[i].count/3)));
+      savedTotal = parseFloat(total - subTotal);
+    } else {
+      savedTotal = 0;
+      subTotal = parseFloat((cartItems[i].count * cartItems[i].price));
+    }
+
+    receiptItems.push({cartItem: cartItems[i], savedTotal: savedTotal, subTotal: subTotal});
+  }
+
+  return receiptItems;
+}
+
+function isExist(promotions, barcode) {
+
+  for (let i = 0; i < promotions[0].barcodes.length; i++) {
+    if (promotions[0].barcodes[i] === barcode) {
+      return true;
+    }
+  }
+
+  return false;
 }
