@@ -34,3 +34,27 @@ function buildCartItems(tags, allItems) {
   return cartItems;
 
 }
+
+
+function buildReceiptItems(promotions, cartItems) {
+  let subTotal = 0;
+  let total = 0;
+  let savedTotal = 0;
+
+  return cartItems.map(cartItem => {
+    promotions.forEach(promotion => {
+      if (promotion.type === "BUY_TWO_GET_ONE_FREE") {
+        if (promotion.barcodes.find(code => code === cartItem.barcode)) {
+          total = parseFloat(cartItem.count * cartItem.price);
+          subTotal = parseFloat((cartItem.price * (cartItem.count - parseInt(cartItem.count / 3))));
+          savedTotal = parseFloat(total - subTotal);
+        } else {
+          savedTotal = 0;
+          subTotal = parseFloat(cartItem.count * cartItem.price);
+        }
+      }
+    });
+
+    return {cartItem: cartItem, savedTotal: savedTotal, subTotal: subTotal};
+  })
+}
