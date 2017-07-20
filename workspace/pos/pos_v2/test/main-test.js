@@ -58,7 +58,7 @@ describe("unit pos", () => {
       'ITEM000005',
       'ITEM000005-2',
     ];
-    const cartItems = buildCartItems(tags,items);
+    const cartItems = buildCartItems(tags, items);
 
     const expectCartItems = [{
       barcode: 'ITEM000001',
@@ -82,4 +82,91 @@ describe("unit pos", () => {
 
     expect(cartItems).toEqual(expectCartItems);
   });
+
+  it("should build receiptItem", () => {
+    const cartItems = [{
+      barcode: 'ITEM000001',
+      name: '雪碧',
+      unit: '瓶',
+      price: 3.00,
+      count: 5
+    }, {
+      barcode: 'ITEM000003',
+      name: '荔枝',
+      unit: '斤',
+      price: 15.00,
+      count: 2.5
+    }, {
+      barcode: 'ITEM000005',
+      name: '方便面',
+      unit: '袋',
+      price: 4.50,
+      count: 3
+    }];
+    const promotions = Promotion.all();
+
+    const receiptItems = buildReceiptItems(promotions, cartItems);
+
+    const expectReceiptItems = [{
+      cartItem: {
+        barcode: 'ITEM000001',
+        name: '雪碧',
+        unit: '瓶',
+        price: 3.00,
+        count: 5
+
+      },
+      savedTotal: 3,
+      subTotal: 12
+    }, {
+
+      cartItem: {
+        barcode: 'ITEM000003',
+        name: '荔枝',
+        unit: '斤',
+        price: 15.00,
+        count: 2.5
+      },
+      savedTotal: 0,
+      subTotal: 37.5
+    }, {
+      cartItem: {
+        barcode: 'ITEM000005',
+        name: '方便面',
+        unit: '袋',
+        price: 4.50,
+        count: 3
+      },
+      savedTotal: 4.5,
+      subTotal: 9
+    }];
+
+    expect(receiptItems).toEqual(expectReceiptItems);
+  });
+
+  it("should return true or false",()=>{
+    const promotions = [
+      {
+        type: 'BUY_TWO_GET_ONE_FREE',
+        barcodes: [
+          'ITEM000000',
+          'ITEM000001',
+          'ITEM000005'
+        ]
+      }
+    ];
+
+    const cartItems = {
+      barcode: 'ITEM000001',
+      name: '雪碧',
+      unit: '瓶',
+      price: 3.00,
+      count: 5
+    };
+
+    const result = judgeDisCountType(promotions,cartItems);
+
+    expect(result).toBe(true);
+  })
+
 });
