@@ -8,7 +8,6 @@ function printReceipt(tags) {
   const receiptItems = buildReceiptItems(promotions, cartItems);
 
   const receiptText = buildReceiptText(receiptItems);
-
   console.log(receiptText);
 }
 
@@ -19,8 +18,8 @@ function buildCartItems(tags, items) {
     let tagArray = tag.split('-');
     let barcode = tagArray[0];
     let count = parseFloat(tagArray[1]) || 1;
-
     const cartItem = cartItems.find(element => element.barcode === barcode);
+
     if (cartItem) {
       calculateItemsCount(cartItem, count);
     } else {
@@ -60,7 +59,6 @@ function buildReceiptItems(promotions, cartItems) {
   });
 }
 
-
 function judgeDisCountType(promotions, cartItem) {
   for (const promotion of promotions) {
     if (promotion.type === 'BUY_TWO_GET_ONE_FREE') {
@@ -81,7 +79,7 @@ function buildReceiptText(receiptItems) {
   let receiptText = `***<没钱赚商店>收据***
 打印时间：${currentTime}
 ----------------------\n`;
-  const receiptTextInformation = generateItemText(receiptItems, receiptText);
+  const receiptTextInformation = generateItemText(receiptItems);
 
   return `${receiptText}${receiptTextInformation.itemInformation}----------------------
 总计：${receiptTextInformation.total.toFixed(2)}(元)
@@ -100,7 +98,6 @@ function generateItemText(receiptItems) {
   });
   return {total, savedTotal, itemInformation};
 }
-
 
 function getCurrentDate() {
   const currentDate = new Date(),
