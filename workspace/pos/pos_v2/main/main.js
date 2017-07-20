@@ -62,7 +62,7 @@ function buildReceiptItems(promotions, cartItems) {
 
 
 function judgeDisCountType(promotions, cartItem) {
-  for(const promotion of promotions) {
+  for (const promotion of promotions) {
     if (promotion.type === 'BUY_TWO_GET_ONE_FREE') {
       if (promotion.barcodes.find(barcode => barcode === cartItem.barcode)) {
         return true;
@@ -75,3 +75,45 @@ function calculateItemsMoney(cartItem) {
   let price = cartItem.price;
   return cartItem.count >= 3 ? (cartItem.count - 1) * price : (cartItem.count * price);
 }
+
+function buildReceiptText(receiptItems) {
+  let currentTime = getCurrentDate();
+  let receiptText = `***<没钱赚商店>收据***
+打印时间：${currentTime}
+----------------------\n`;
+  const receiptTextInformation = generateItemText(receiptItems, receiptText);
+
+  return `${receiptText}${receiptTextInformation.itemInformation}----------------------
+总计：${receiptTextInformation.total.toFixed(2)}(元)
+节省：${receiptTextInformation.savedTotal.toFixed(2)}(元)
+**********************`;
+}
+
+function generateItemText(receiptItems) {
+  let [total, savedTotal] = [0, 0];
+  let itemInformation = [];
+
+  receiptItems.forEach(receiptItem => {
+    total += receiptItem.subTotal;
+    savedTotal += receiptItem.savedTotal;
+    itemInformation += `名称：${receiptItem.cartItem.name}，数量：${receiptItem.cartItem.count}${receiptItem.cartItem.unit}，单价：${receiptItem.cartItem.price.toFixed(2)}(元)，小计：${receiptItem.subTotal.toFixed(2)}(元)\n`;
+  });
+  return {total, savedTotal, itemInformation};
+}
+
+
+function getCurrentDate() {
+  const currentDate = new Date(),
+    year = dateDigitToString(currentDate.getFullYear()),
+    month = dateDigitToString(currentDate.getMonth() + 1),
+    date = dateDigitToString(currentDate.getDate()),
+    hour = dateDigitToString(currentDate.getHours()),
+    minute = dateDigitToString(currentDate.getMinutes()),
+    second = dateDigitToString(currentDate.getSeconds());
+
+  return `${year}年${month}月${date}日 ${hour}:${minute}:${second}`;
+}
+
+const dateDigitToString = num => (num < 10 ? `0${num}` : num);
+
+
