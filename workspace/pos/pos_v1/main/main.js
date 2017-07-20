@@ -60,7 +60,7 @@ function buildReceiptItems(promotions, cartItems) {
 function buildReceiptText(receiptItems) {
   let receiptText = "***<没钱赚商店>收据***\n";
   let [total, savedTotal] = [0, 0];
-  
+
   receiptItems.forEach(receiptItem => {
     total += receiptItem.subTotal;
     savedTotal += receiptItem.savedTotal;
