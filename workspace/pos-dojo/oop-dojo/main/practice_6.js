@@ -11,4 +11,15 @@ class Person {
     }
 }
 
-module.exports = Person;
+class Student extends Person {
+    constructor(name, age, className) {
+        super(name, age);
+        this.className = className;
+    }
+
+    introduce(className) {
+        return `${super.introduce()}I am at ${this.className}.`;
+    }
+}
+
+module.exports = {Person,Student};
