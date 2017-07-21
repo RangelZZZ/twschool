@@ -1,6 +1,6 @@
 "use strict";
 
-import {Person,Student} from "../../main/practice_6";
+import {Person, Student, Worker} from "../../main/practice_6";
 
 describe("OO入门", function () {
     it("覆盖父类的方法-1", function () {
@@ -15,5 +15,12 @@ describe("OO入门", function () {
         const expectString = `My name is guoru.I am 21 years old.I am at Class 2.`;
 
         expect(student.introduce()).toBe(expectString);
+    });
+
+    it("覆盖父类的方法-3", function () {
+        const worker = new Worker("guoru", "21");
+        const expectString = `My name is guoru.I am 21 years old.I am a Worker. I have a job.`;
+
+        expect(worker.introduce()).toBe(expectString);
     });
 });
