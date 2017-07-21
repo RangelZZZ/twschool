@@ -1,7 +1,12 @@
 "use strict";
 
-describe("OO入门", function(){
-    it("覆盖同时复用父类被覆盖的方法", function(){
+import Person from "../../main/practice_6";
 
+describe("OO入门", function () {
+    it("覆盖父类的方法-1", function () {
+        const person = new Person("guoru", "21");
+        const expectString = `My name is guoru.I am 21 years old.`;
+
+        expect(person.introduce()).toBe(expectString);
     });
 });
