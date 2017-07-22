@@ -31,9 +31,17 @@ describe("OO入门", function () {
     });
 
     it("对象之间交互-8-5", function () {
-        const student = new Student("Jerry","21","2");
-        const teacher = new Teacher("guoru", "21","2");
+        const student = new Student("Jerry","21",2);
+        const teacher = new Teacher("guoru", "21",2);
         const expectString = `My name is guoru.I am 21 years old.I am a Teacher. I teach Jerry.`;
+
+        expect(teacher.introduceWith(student)).toBe(expectString);
+    });
+
+    it("对象之间交互-8-6", function () {
+        const student = new Student("Jerry","21",3);
+        const teacher = new Teacher("guoru", "21",2);
+        const expectString = `My name is guoru.I am 21 years old.I am a Teacher. I don't teach Jerry.`;
 
         expect(teacher.introduceWith(student)).toBe(expectString);
     });

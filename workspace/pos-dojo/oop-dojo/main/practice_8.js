@@ -48,6 +48,9 @@ class Teacher extends Person {
         if (student.classNumber.number === this.classNumber) {
             return `${super.introduce()}I am a Teacher. I teach ${student.name}.`;
         }
+
+        return `${super.introduce()}I am a Teacher. I don't teach ${student.name}.`;
+
     }
 }
 
