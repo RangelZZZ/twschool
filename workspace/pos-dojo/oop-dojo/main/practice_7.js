@@ -32,7 +32,10 @@ class Teacher extends Person {
         if (this.className) {
             return `${super.introduce()}I am a Teacher.I teach ${this.className}.`
         }
+
+        return `${super.introduce()}I am a Teacher.I teach No Class.`
     }
 }
+
 
 module.exports = {Person, Student, Teacher};
