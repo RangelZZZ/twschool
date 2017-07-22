@@ -21,11 +21,11 @@ class ClassNumber {
 class Student extends Person {
     constructor(name, age, classNumber) {
         super(name, age);
-        this.className = new ClassNumber(classNumber);
+        this.classNumber = new ClassNumber(classNumber);
     }
 
     introduce(className) {
-        return `My name is guoru. I am 21 years old. I am a Student. I am at Class ${this.className.number}.`;
+        return `My name is guoru. I am 21 years old. I am a Student. I am at Class ${this.classNumber.number}.`;
     }
 }
 
@@ -33,17 +33,22 @@ class Student extends Person {
 class Teacher extends Person {
     constructor(name, age, className) {
         super(name, age);
-        this.className = className;
+        this.classNumber = className;
     }
 
     introduce() {
-        if (this.className) {
-            return `${super.introduce()}I am a Teacher.I teach ${this.className}.`
+        if (this.classNumber) {
+            return `${super.introduce()}I am a Teacher.I teach Class ${this.classNumber}.`
         }
 
         return `${super.introduce()}I am a Teacher.I teach No Class.`
     }
-}
 
+    introduceWith(student) {
+        if (student.classNumber.number === this.classNumber) {
+            return `${super.introduce()}I am a Teacher. I teach ${student.name}.`;
+        }
+    }
+}
 
 module.exports = {Person, Student, Teacher};
