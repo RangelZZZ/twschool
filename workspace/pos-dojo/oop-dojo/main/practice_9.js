@@ -47,4 +47,21 @@ class Student extends Person {
     }
 }
 
-module.exports = {Person, Student, Class};
+class Teacher extends Person {
+    constructor(name, age, id, classInfo) {
+        super(name, age, id);
+        this.classInfo = classInfo;
+    }
+
+    introduce() {
+        let resultString = `My name is Tom. I am 21 years old. I am a Teacher.`;
+        if (this.classInfo) {
+            return `${resultString}I teach Class 2.`;
+        }
+
+        return `${resultString}I teach No Class.`;
+    }
+
+}
+
+module.exports = {Person, Student, Class,Teacher};
