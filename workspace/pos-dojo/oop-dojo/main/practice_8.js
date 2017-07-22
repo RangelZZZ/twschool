@@ -29,4 +29,21 @@ class Student extends Person {
     }
 }
 
-module.exports = {Person, Student, ClassNumber};
+
+class Teacher extends Person {
+    constructor(name, age, className) {
+        super(name, age);
+        this.className = className;
+    }
+
+    introduce() {
+        if (this.className) {
+            return `${super.introduce()}I am a Teacher.I teach ${this.className}.`
+        }
+
+        return `${super.introduce()}I am a Teacher.I teach No Class.`
+    }
+}
+
+
+module.exports = {Person, Student, Teacher};
