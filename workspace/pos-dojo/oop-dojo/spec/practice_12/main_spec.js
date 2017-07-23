@@ -1,5 +1,5 @@
 "use strict";
-import {Person, Class, Student} from "../../main/practice_12";
+import {Person, Class, Student, Teacher} from "../../main/practice_12";
 
 describe("OO入门", function () {
     it("对象之间的交互-12-1", function () {
@@ -55,7 +55,53 @@ describe("OO入门", function () {
 
         expect(classInfo.assignLeader(student1)).toBe(expectedString);
 
+    });
 
+    it("对象之间交互-12-7", function () {
+        const class2 = new Class(2);
+        const class3 = new Class(3);
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+        const expectString = `My name is Tom.I am 21 years old. I am a Teacher.I teach Class 2,3.`;
+        expect(teacher.introduce()).toBe(expectString);
+    });
+
+
+    it("对象之间交互-12-8", function () {
+        const teacher = new Teacher("Tom", "21", 1);
+        const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach No Class.`;
+        expect(teacher.introduce()).toBe(expectString);
+    });
+
+    it("对象之间交互-12-9", function () {
+        const class2 = new Class(2);
+        const class3 = new Class(3);
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+        const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(2)));
+
+        expect(expectResult).toBe(true);
+    });
+
+    it("对象之间交互-12-10", function () {
+        const class2 = new Class(2);
+        const class3 = new Class(3);
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+        const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(4)));
+
+        expect(expectResult).toBe(false);
+    });
+
+    it("对象之间的交互-12-11", function () {
+        const class2 = new Class(2);
+        const class3 = new Class(3);
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+
+        const student = new Student("Jerry", "21", 1, class2);
+        const resultString = class3.assignLeader(new Student(new Student("Jerry", "21", 1, class2)));
+
+
+        expect(student).toBe(`I am Tom. I know Jerry has joined Class 2.`);
+        expect(resultString).toBe(`I am Tom. I know Jerry become Leader of Class 2.`);
     });
 
 });
+

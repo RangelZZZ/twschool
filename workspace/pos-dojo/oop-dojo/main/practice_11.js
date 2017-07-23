@@ -49,7 +49,10 @@ class Class {
     }
 
     isIn(student) {
-        return this.students.find(element => element.judgeTheSame(student) === true);
+        if (this.students.find(element => element.judgeTheSame(student) === true)) {
+            return true;
+        }
+        return false;
 
     }
 }
@@ -79,20 +82,25 @@ class Teacher extends Person {
     }
 
     isTeaching(student) {
-        return this.classes.find(element => element.isIn(student) === true);
-
+        if (this.classes.find(element => element.isIn(student) === true)) {
+            return true;
+        }
+        return false;
     }
 
     introduce() {
-        let resultString = `${super.introduce()}. I am a Teacher.`;
+        let resultString = `${super.introduce()} I am a Teacher.`;
+        let classNumbers = [];
         if (this.classes) {
-            let classNumbers = this.classes.split("");
-            return `${resultString}I teach Class ${classNumbers}.`;
+            for (let classInfo of this.classes) {
+                classNumbers.push(classInfo.number);
+            }
+
+            return `${resultString}I teach Class ${classNumbers.toString()}.`;
         }
 
         return `${resultString}I teach No Class.`;
     }
-
 }
 
-module.exports = {Person, Class, Student};
+module.exports = {Person, Class, Student, Teacher};

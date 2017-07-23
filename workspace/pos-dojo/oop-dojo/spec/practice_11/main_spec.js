@@ -1,6 +1,6 @@
 "use strict";
 
-import {Person, Class, Student} from "../../main/practice_11";
+import {Person, Class, Student,Teacher} from "../../main/practice_11";
 
 describe("OO入门", function () {
     it("对象之间交互-11-1", function () {
@@ -36,33 +36,40 @@ describe("OO入门", function () {
     });
 
     it("对象之间交互-11-4", function () {
-        it("对象之间交互-10-3", function () {
-            const teacher = new Teacher("Tom", "21", 1, [2, 3]);
-            const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach Class 2,3`;
-            expect(teacher.introduce()).toBe(expectString);
-        });
+        const class2 = new Class(2);
+        const class3 = new Class(3);
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+        const expectString = `My name is Tom.I am 21 years old. I am a Teacher.I teach Class 2,3.`;
+        expect(teacher.introduce()).toBe(expectString);
+    });
 
 
-        it("对象之间交互-11-5", function () {
-            const teacher = new Teacher("Tom", "21", 1);
-            const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach No Class.`;
-            expect(teacher.introduce()).toBe(expectString);
-        });
+    it("对象之间交互-11-5", function () {
+        const teacher = new Teacher("Tom", "21", 1);
+        const expectString = `My name is Tom.I am 21 years old. I am a Teacher.I teach No Class.`;
+        expect(teacher.introduce()).toBe(expectString);
+    });
 
-        it("对象之间交互-11-6", function () {
-            const teacher = new Teacher("Tom", "21", 1,[2,3]);
-            const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(2)));
+    it("对象之间交互-11-6", function () {
+        const class2 = new Class(2);
+        const class3 = new Class(3);
 
-            expect(expectResult).toBe(true);
-        });
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+        const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(2)));
 
-        it("对象之间交互-11-7", function () {
-            const teacher = new Teacher("Tom", "21", 1,[2,3]);
-            const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(4)));
+        expect(expectResult).toBe(false);
+    });
 
-            expect(expectResult).toBe(false);
-        });
+    it("对象之间交互-11-7", function () {
+        const class2 = new Class(2);
+        const class3 = new Class(3);
 
-    })
+        const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
+        const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(4)));
+
+        expect(expectResult).toBe(false);
+    });
+
 });
+
 
