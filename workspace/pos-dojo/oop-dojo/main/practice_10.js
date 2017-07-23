@@ -20,18 +20,34 @@ class Person {
 class Class {
     constructor(number) {
         this.number = number;
+        this.students = [];
     }
 
     assignLeader(student) {
-        this.leader = student;
+        if (!this.isExist(student)) {
+            return `It is not one of us.`;
+        } else {
+            this.leader = student;
+        }
     }
 
     isLeader(student) {
         return (this.leader && (student.judgeTheSame(this.leader)));
     }
 
-    appendMember(student){
+    appendMember(student) {
+        if (!this.isExist(student)) {
+            this.students.push(student);
+        }
+    }
 
+    isExist(student) {
+        for (let stu of this.students) {
+            if (stu.judgeTheSame(student)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 
@@ -39,6 +55,7 @@ class Student extends Person {
     constructor(name, age, id, classInfo) {
         super(name, age, id);
         this.classInfo = classInfo;
+        this.classInfo.appendMember(this);
     }
 
     introduce() {
@@ -52,4 +69,4 @@ class Student extends Person {
     }
 }
 
-module.exports = {Person,Class,Student};
+module.exports = {Person, Class, Student};
