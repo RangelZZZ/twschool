@@ -95,5 +95,4 @@ class Teacher extends Person {
 
 }
 
-module
-    .exports = {Person, Class, Student};
+module.exports = {Person, Class, Student};
