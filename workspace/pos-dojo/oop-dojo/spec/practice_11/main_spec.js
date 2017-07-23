@@ -10,7 +10,7 @@ describe("OO入门", function () {
         expect(person.introduce()).toBe(expectString);
     });
 
-    it("对象之间交互-11-1", function () {
+    it("对象之间交互-11-2", function () {
         const student = new Student("Tom", "21", 1, new Class(2));
         const expectString = `My name is Tom.I am 21 years old.I am a Student.I am at Class 2.`;
 
@@ -18,7 +18,7 @@ describe("OO入门", function () {
 
     });
 
-    it("对象之间交互-10-3", function () {
+    it("对象之间交互-11-3", function () {
         const classInfo = new Class(2);
         const student = new Student("Tom", "21", 1, classInfo);
 
@@ -35,7 +35,7 @@ describe("OO入门", function () {
         expect(classInfo.assignLeader(student1)).toBe(expectedString);
     });
 
-    it("对象之间交互-10-4", function () {
+    it("对象之间交互-11-4", function () {
         it("对象之间交互-10-3", function () {
             const teacher = new Teacher("Tom", "21", 1, [2, 3]);
             const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach Class 2,3`;
@@ -43,24 +43,24 @@ describe("OO入门", function () {
         });
 
 
-        it("对象之间交互-10-4", function () {
+        it("对象之间交互-11-5", function () {
             const teacher = new Teacher("Tom", "21", 1);
             const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach No Class.`;
             expect(teacher.introduce()).toBe(expectString);
         });
 
-        it("对象之间交互-10-5", function () {
+        it("对象之间交互-11-6", function () {
             const teacher = new Teacher("Tom", "21", 1,[2,3]);
             const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(2)));
 
             expect(expectResult).toBe(true);
         });
 
-        it("对象之间交互-10-6", function () {
+        it("对象之间交互-11-7", function () {
             const teacher = new Teacher("Tom", "21", 1,[2,3]);
             const expectResult = teacher.isTeaching(new Student("rangel", "21", 3, new Class(4)));
 
-            expect(expectResult).toBe(false``);
+            expect(expectResult).toBe(false);
         });
 
     })
