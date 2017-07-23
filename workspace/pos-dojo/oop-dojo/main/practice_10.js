@@ -25,7 +25,7 @@ class Class {
 
     assignLeader(student) {
         if (!this.isExist(student)) {
-            return `It is not one of us.`;
+                return `It is not one of us.`;
         } else {
             this.leader = student;
         }

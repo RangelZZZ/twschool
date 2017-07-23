@@ -48,7 +48,10 @@ class Class {
         return false;
     }
 
+    isIn(student){
+        return !!this.students.find(element => element.judgeTheSame(student) === true);
 
+    }
 }
 
 class Student extends Person {
@@ -69,4 +72,28 @@ class Student extends Person {
     }
 }
 
-module.exports = {Person, Class, Student};
+class Teacher extends Person {
+    constructor(name, age, id, classes) {
+        super(name, age, id);
+        this.classes = classes;
+    }
+
+    isTeaching(student) {
+        return !!this.classes.find(element => element.isIn(student) === true);
+
+    }
+
+    introduce() {
+        let resultString = `My name is Tom. I am 21 years old. I am a Teacher.`;
+        if (this.classes) {
+            let classNumbers = this.classes.split("");
+            return `${resultString}I teach Class ${classNumbers}.`;
+        }
+
+        return `${resultString}I teach No Class.`;
+    }
+
+}
+
+module
+    .exports = {Person, Class, Student};
