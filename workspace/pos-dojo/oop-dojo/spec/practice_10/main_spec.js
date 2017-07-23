@@ -1,6 +1,6 @@
 "use strict";
 
-import {Person, Class, Student} from "../../main/practice_10";
+import {Person, Class, Student,Teacher} from "../../main/practice_10";
 
 describe("OO入门", function () {
     it("对象之间交互-10-1", function () {
@@ -35,5 +35,18 @@ describe("OO入门", function () {
         expect(classInfo.assignLeader(student1)).toBe(expectedString);
     });
 
+    it("对象之间交互-10-3", function () {
+        const classInfo = new Class(2);
+        const teacher = new Teacher("Tom", "21", 1,classInfo);
+        const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach Class 2.`;
+        expect(teacher.introduce()).toBe(expectString);
+    });
+
+
+    it("对象之间交互-10-4", function () {
+        const teacher = new Teacher("Tom", "21", 1);
+        const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach No Class.`;
+        expect(teacher.introduce()).toBe(expectString);
+    });
 
 });
