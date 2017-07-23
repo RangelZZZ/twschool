@@ -47,6 +47,7 @@ class Class {
                 return true;
             }
         }
+
         return false;
     }
 }
