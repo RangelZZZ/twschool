@@ -23,4 +23,11 @@ public class PersonTest {
         String resultString = "My name is Tom Wu. I am 21 years old.\n";
         assertThat(person.introduce(), is(resultString));
     }
+
+    @Test
+    public void getToString() throws Exception {
+        person = new Person("Tom", "21");
+        String resultString = "My name is Tom. I am 21 years old.\n";
+        assertThat(person.toString(), is(resultString));
+    }
 }
