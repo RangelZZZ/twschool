@@ -8,7 +8,7 @@ public class Student extends Person {
         this.klass = klass;
     }
 
-    public String introduce(){
-        return "My name is " + this.getName() + ". I am " + this.getAge() + " years old.I am at Class " + this.klass + "\n ";
+    public String introduce() {
+        return super.introduce() + "I am at Class " + this.klass + "\n ";
     }
 }
