@@ -11,7 +11,7 @@ public class PersonTest {
 
     @Test
     public void should_return_person_information() throws Exception {
-        person = new Person("Tom", 21);
+        person = new Person("Tom", 21,1);
 
         String resultString = "My name is Tom. I am 21 years old.";
         assertThat(person.introduce(), is(resultString));
