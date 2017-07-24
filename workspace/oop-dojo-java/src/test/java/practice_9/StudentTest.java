@@ -9,12 +9,6 @@ public class StudentTest {
     private Student student;
 
     @Test
-    public void should_return_student_information() throws Exception {
-        student = new Student("Tom", 21, 1,new Class(2));
-        assertThat(student.introduce(), is("My name is Tom. I am 21 years old. I am a Student. I am at Class 2."));
-    }
-
-    @Test
     public void should_return_leader_of_class_information() throws Exception {
         Class klass = new Class(2);
 
