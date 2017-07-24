@@ -51,7 +51,7 @@ class Class {
 
     joinClass(student) {
         if (this.teacher) {
-            this.teacher.printJoinClass(student, this);
+            return this.teacher.printJoinClass(student, this);
         }
     }
 
@@ -92,7 +92,10 @@ class Teacher extends Person {
 
 
     isTeaching(student) {
-        return this.classes.find(element => element.isIn(student) === true);
+        if (this.classes.find(element => element.isIn(student) === true)){
+            return true;
+        }
+        return false;
     }
 
     printJoinClass(student, classInfo) {

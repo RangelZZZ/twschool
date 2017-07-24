@@ -96,7 +96,7 @@ describe("OO入门", function () {
         const teacher = new Teacher("Tom", "21", 1, [class2, class3]);
 
         const student = new Student("Jerry", "21", 1, class2);
-        const resultString = class3.assignLeader(new Student(new Student("Jerry", "21", 1, class2)));
+        const resultString = class3.assignLeader(new Student("Jerry", "21", 1, class2));
 
 
         expect(student).toBe(`I am Tom. I know Jerry has joined Class 2.`);

@@ -23,7 +23,7 @@ class Class {
     }
 
     assignLeader(student) {
-        if (!this.isExist(student)) {
+        if (!this.isIn(student)) {
             return `It is not one of us.`;
         }
         this.leader = student;
@@ -34,19 +34,11 @@ class Class {
     }
 
     appendMember(student) {
-        if (!this.isExist(student)) {
+        if (!this.isIn(student)) {
             this.students.push(student);
         }
     }
 
-    isExist(student) {
-        for (let stu of this.students) {
-            if (stu.judgeTheSame(student)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     isIn(student) {
         if (this.students.find(element => element.judgeTheSame(student) === true)) {

@@ -42,7 +42,6 @@ describe("OO入门", function () {
         expect(teacher.introduce()).toBe(expectString);
     });
 
-
     it("对象之间交互-10-4", function () {
         const teacher = new Teacher("Tom", "21", 1);
         const expectString = `My name is Tom. I am 21 years old. I am a Teacher.I teach No Class.`;
