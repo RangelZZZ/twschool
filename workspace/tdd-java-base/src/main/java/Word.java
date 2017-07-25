@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class Word {
 
@@ -51,4 +49,17 @@ public class Word {
 
         return null;
     }
+
+    public ArrayList<Word> sortWordCountList(ArrayList<Word> wordsCountList) {
+
+        Collections.sort(wordsCountList, new Comparator<Word>() {
+            @Override
+            public int compare(Word o1, Word o2) {
+                return o2.getCount() - o1.getCount();
+            }
+        });
+
+        return wordsCountList;
+    }
+
 }

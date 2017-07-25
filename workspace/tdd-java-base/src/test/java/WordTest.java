@@ -22,4 +22,17 @@ public class WordTest {
         assertThat(wordsCountList.get(0).getCount(),is(3));
         assertThat(wordsCountList.get(1).getCount(),is(2));
     }
+
+    @Test
+    public void should_sort_words_and_return_sorted_list_when_input_words_count_list() throws Exception {
+        ArrayList<Word> wordsCountList = new ArrayList<Word>();
+        wordsCountList.add(new Word("the", 4));
+        wordsCountList.add(new Word("is", 6));
+
+        ArrayList<Word> sortedWordList = new Word("", 0).sortWordCountList(wordsCountList);
+
+            assertThat(sortedWordList.get(0).getWord(), is("is"));
+        assertThat(sortedWordList.get(1).getWord(),is("the"));
+
+    }
 }
