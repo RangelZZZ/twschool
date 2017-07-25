@@ -20,31 +20,35 @@ public class Word {
         return count;
     }
 
+    public void setCount() {
+        this.count = this.count + 1;
+    }
+
     public ArrayList<Word> generateWordsCountList(List<String> splitedText) {
 
         ArrayList<Word> wordsCountList = new ArrayList<Word>();
 
         for (String word : splitedText) {
-            if (isExist(word, wordsCountList)) {
-                this.count++;
-            } else {
-                wordsCountList.add(new Word(word,1));
+            Word existWord = isExistWord(word, wordsCountList);
 
+            if (existWord != null) {
+                existWord.setCount();
+            } else {
+                wordsCountList.add(new Word(word, 1));
             }
         }
 
         return wordsCountList;
-
     }
 
-    public Boolean isExist(String word, ArrayList<Word> wordsCountList) {
+    public Word isExistWord(String word, ArrayList<Word> wordsCountList) {
 
-        for(Word word1:wordsCountList){
-            if(word1.getWord() == word){
-                return true;
+        for (Word object : wordsCountList) {
+            if (object.getWord() == word) {
+                return object;
             }
         }
 
-        return false;
+        return null;
     }
 }
