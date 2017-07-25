@@ -53,6 +53,7 @@ public class Word {
     public ArrayList<Word> sortWordCountList(ArrayList<Word> wordsCountList) {
 
         Collections.sort(wordsCountList, new Comparator<Word>() {
+
             @Override
             public int compare(Word o1, Word o2) {
                 return o2.getCount() - o1.getCount();
@@ -62,4 +63,22 @@ public class Word {
         return wordsCountList;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s %d", this.word, this.count);
+    }
+
+    public String printWordText(ArrayList<Word> sortedWordList) {
+        String sortedWordsText = "";
+
+        for (Word word : sortedWordList) {
+            if (sortedWordList.indexOf(word) == sortedWordList.size() - 1) {
+                sortedWordsText += word.toString();
+            } else {
+                sortedWordsText += word.toString() + "\n";
+            }
+        }
+
+        return sortedWordsText;
+    }
 }
