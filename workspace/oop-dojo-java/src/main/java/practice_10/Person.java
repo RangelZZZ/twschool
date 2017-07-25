@@ -1,6 +1,5 @@
 package practice_10;
 
-
 public class Person {
 
     private int id;

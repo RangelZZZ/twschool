@@ -15,4 +15,12 @@ public class Person {
     public String introduce() {
         return "My name is " + this.name + ". I am " + this.age + " years old.";
     }
+
+    public boolean isSamePeople(Student student) {
+        return this.id == student.getId();
+    }
+
+    public int getId() {
+        return id;
+    }
 }

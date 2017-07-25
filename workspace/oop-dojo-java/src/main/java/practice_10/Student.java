@@ -13,6 +13,7 @@ public class Student extends Person {
         this.klass = klass;
     }
 
+    @Override
     public String introduce() {
         if (this.getKlass().isLeader(this)) {
             return super.introduce() + " I am a Student. I am Leader of Class " + this.klass.getNumber() + ".";
