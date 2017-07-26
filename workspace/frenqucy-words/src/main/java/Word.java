@@ -10,15 +10,15 @@ public class Word {
         this.word = word;
     }
 
-    public String getWord() {
-        return word;
-    }
-
     public int getCount() {
         return count;
     }
 
-    public void setCount() {
+    public String getWord() {
+        return word;
+    }
+
+    public void increaseCountByOne() {
         this.count = this.count + 1;
     }
 
@@ -30,7 +30,7 @@ public class Word {
             Word existWord = isExistWord(word, wordsCountList);
 
             if (existWord != null) {
-                existWord.setCount();
+                existWord.increaseCountByOne();
             } else {
                 wordsCountList.add(new Word(word, 1));
             }
@@ -44,12 +44,12 @@ public class Word {
         for (Word object : wordsCountList) {
             if (object.getWord() == word) {
                 return object;
+
             }
         }
 
         return null;
     }
-
     public ArrayList<Word> sortWordCountList(ArrayList<Word> wordsCountList) {
 
         Collections.sort(wordsCountList, new Comparator<Word>() {

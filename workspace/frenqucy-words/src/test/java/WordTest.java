@@ -11,7 +11,7 @@ public class WordTest {
 
 
     @Test
-    public void should_calculate_word_countand_return_wordCount_arrayList_when_input_list_of_list() throws Exception {
+    public void should_calculate_word_count_and_return_wordCount_arrayList_when_input_list_of_list() throws Exception {
         List<String> splitedText = Arrays.asList("the", "the", "is", "the", "is");
 
         ArrayList<Word> wordsCountList = new Word("", 0).generateWordsCountList(splitedText);
@@ -40,7 +40,6 @@ public class WordTest {
         sortedWordList.add(new Word("the", 4));
 
         String sortedWordText = new Word("", 0).printWordText(sortedWordList);
-        System.out.println(sortedWordText);
 
         assertThat(sortedWordText,is("is 6\nthe 4"));
     }
