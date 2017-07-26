@@ -14,7 +14,7 @@ public class Menu {
     }
 
 
-    public static Student saveStudentInformation(String studentInput) {
+    public static Student extractStudentInformation(String studentInput) {
         Pattern pattern = Pattern.compile(studentInputFormat);
         Matcher matcher = pattern.matcher(studentInput);
         if (matcher.matches()) {

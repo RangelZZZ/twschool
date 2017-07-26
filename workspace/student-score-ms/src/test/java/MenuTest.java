@@ -53,7 +53,7 @@ public class MenuTest {
     public void should_extract__student_data_when_student_input_right_information() throws Exception {
         String studentInput = "guoru，001，数学：97，语文：95，英语：76，编程：100";
 
-        Student student = Menu.saveStudentInformation(studentInput);
+        Student student = Menu.extractStudentInformation(studentInput);
         System.out.println(student.getName());
 
         assertThat(student.getName(),is("guoru"));
