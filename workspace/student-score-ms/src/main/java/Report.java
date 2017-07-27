@@ -1,5 +1,3 @@
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Report {
 
@@ -11,7 +9,7 @@ public class Report {
     }
 
 
-    public StringBuilder generateScoreList() {
+    private StringBuilder generateScoreList() {
         StringBuilder scoreList = new StringBuilder();
 
         klass.getStudents().stream().map(s -> generateScoreListItem(s)).forEach(s -> scoreList.append(s).append(separator));

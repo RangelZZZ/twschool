@@ -23,7 +23,7 @@ public class ReportTest {
         String studentScoreList = new Report(klass).printStudentScoreList();
 
         System.out.println(studentScoreList);
-        assertThat(studentScoreList,is("成绩单\n" +
+        assertThat(studentScoreList, is("成绩单\n" +
                 "姓名|数学|语文|英语|编程|平均分|总分\n" +
                 "========================\n" +
                 "guoru|94|96|92|90|93|372\n" +

@@ -23,7 +23,6 @@ public class ClassTest {
     @Test
     public void should_calculate_all_students_total_score_and_median_score_when_student_score_is_even_count() throws Exception {
         Class klass = new Class();
-
         klass.addStudent(new Student("guoru", "001", 94, 96, 92, 90));
         klass.addStudent(new Student("fuhong", "002", 100, 98, 92, 98));
 
@@ -36,13 +35,10 @@ public class ClassTest {
     @Test
     public void should_calculate_all_students_total_score_and_median_score_when_student_count_is_odd_count() throws Exception {
         Class klass = new Class();
-
         klass.addStudent(new Student("guoru", "001", 94, 96, 92, 90));
         klass.addStudent(new Student("fuhong", "002", 100, 98, 90, 98));
         klass.addStudent(new Student("rangel", "003", 100, 96, 98, 100));
 
-        System.out.println(klass.getTotalScore());
-        System.out.println(klass.getMedianScore());
         assertThat(klass.getTotalScore(), is(1152));
         assertThat(klass.getMedianScore(), is(386));
     }
