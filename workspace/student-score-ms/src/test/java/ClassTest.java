@@ -1,6 +1,4 @@
-import org.hamcrest.core.IsEqual;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -29,9 +27,8 @@ public class ClassTest {
         klass.addStudent(new Student("guoru", "001", 94, 96, 92, 90));
         klass.addStudent(new Student("fuhong", "002", 100, 98, 90, 98));
 
-
         assertThat(klass.getTotalScore(), is(758));
-        assertThat(klass.getMedianScore(), is(379));
+        assertThat(klass.getMedianScore(), is(386));
 
     }
 
@@ -43,7 +40,6 @@ public class ClassTest {
         klass.addStudent(new Student("guoru", "001", 94, 96, 92, 90));
         klass.addStudent(new Student("fuhong", "002", 100, 98, 90, 98));
         klass.addStudent(new Student("rangel", "003", 100, 96, 98, 100));
-
 
         assertThat(klass.getTotalScore(), is(1152));
         assertThat(klass.getMedianScore(), is(386));

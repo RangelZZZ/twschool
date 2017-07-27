@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Class {
     private ArrayList<Student> students = new ArrayList<>();
@@ -7,7 +8,7 @@ public class Class {
 
         this.students.add(student);
 
-        return this.students;
+        return students;
     }
 
     public int getTotalScore() {
@@ -16,21 +17,27 @@ public class Class {
         for (Student student : getStudents()) {
             totalScore += student.getTotalScore();
         }
-
         return totalScore;
     }
 
     public int getMedianScore() {
-        int medianLength = students.size() / 2;
+        ArrayList<Student> sortedStudents = sortStudentsByTotalScore();
+        int medianLength = sortedStudents.size() / 2;
 
-        if (students.size() % 2 == 0) {
-            return (students.get(medianLength).getTotalScore() + students.get(medianLength - 1).getTotalScore()) / 2;
+        if (medianLength % 2 == 0) {
+
+            return (sortedStudents.get(medianLength).getTotalScore() + sortedStudents.get(medianLength - 1).getTotalScore()) / 2;
         }
 
-        return students.get(medianLength).getTotalScore();
+        return sortedStudents.get(medianLength).getTotalScore();
     }
 
-    public ArrayList<Student> getStudents() {
+    private ArrayList<Student> sortStudentsByTotalScore() {
+        return (ArrayList<Student>) students.stream().sorted((s1, s2) -> s1.getTotalScore() - s2.getTotalScore()).collect(Collectors.toList());
+
+    }
+
+    private ArrayList<Student> getStudents() {
         return students;
     }
 }

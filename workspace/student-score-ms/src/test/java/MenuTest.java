@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 
 
 public class MenuTest {
@@ -64,7 +63,6 @@ public class MenuTest {
         Boolean result = Menu.judgeStudentInputIdsFormat(inputStudentIds);
 
         assertThat(result, is(true));
-
     }
 
     @Test
