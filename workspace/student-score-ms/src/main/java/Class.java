@@ -22,14 +22,13 @@ public class Class {
 
     public int getMedianScore() {
         ArrayList<Student> sortedStudents = sortStudentsByTotalScore();
-        int medianLength = sortedStudents.size() / 2;
 
-        if (medianLength % 2 == 0) {
+        if (sortedStudents.size() % 2 == 0) {
 
-            return (sortedStudents.get(medianLength).getTotalScore() + sortedStudents.get(medianLength - 1).getTotalScore()) / 2;
+            return (sortedStudents.get(sortedStudents.size() / 2).getTotalScore() + sortedStudents.get(sortedStudents.size() / 2 - 1).getTotalScore()) / 2;
         }
 
-        return sortedStudents.get(medianLength).getTotalScore();
+        return sortedStudents.get(sortedStudents.size() / 2).getTotalScore();
     }
 
     private ArrayList<Student> sortStudentsByTotalScore() {
@@ -37,7 +36,7 @@ public class Class {
 
     }
 
-    private ArrayList<Student> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
     }
 }
