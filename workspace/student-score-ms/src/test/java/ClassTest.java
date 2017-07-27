@@ -1,3 +1,4 @@
+import org.hamcrest.core.IsEqual;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,7 +20,18 @@ public class ClassTest {
         assertThat(stu.getMathScore(), is(98));
         assertThat(stu.getChineseScore(), is(95));
         assertThat(stu.getProgramScore(), is(100));
-
     }
 
+    @Test
+    public void should_calculate_all_students_total_score_and_median_score() throws Exception {
+        Class klass = new Class();
+
+        klass.addStudent(new Student("guoru", "001", 94, 96, 92, 90));
+        klass.addStudent(new Student("fuhong", "002", 100, 98, 90, 98));
+
+
+        assertThat(klass.getTotalScore(),is(758));
+        assertThat(klass.getMedianScore(), is(379));
+
+    }
 }
