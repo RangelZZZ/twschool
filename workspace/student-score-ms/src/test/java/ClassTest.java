@@ -9,15 +9,9 @@ public class ClassTest {
     @Test
     public void should_add_student_to_a_class() throws Exception {
         Student student = new Student("guoru", "001", 98, 95, 93, 100);
-
         ArrayList studentList = new Class().addStudent(student);
-        Student stu = (Student) studentList.get(0);
 
-        assertThat(stu.getId(), is("001"));
-        assertThat(stu.getName(), is("guoru"));
-        assertThat(stu.getMathScore(), is(98));
-        assertThat(stu.getChineseScore(), is(95));
-        assertThat(stu.getProgramScore(), is(100));
+        assertThat(studentList.size(),is(1));
     }
 
     @Test

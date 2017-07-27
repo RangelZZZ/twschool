@@ -12,6 +12,8 @@ public class Class {
     }
 
     public int getTotalScore() {
+        ArrayList<Student> selectedStudents = new ArrayList<>();
+
         int totalScore = 0;
 
         for (Student student : getStudents()) {
@@ -19,6 +21,7 @@ public class Class {
         }
         return totalScore;
     }
+
 
     public int getMedianScore() {
         ArrayList<Student> sortedStudents = sortStudentsByTotalScore();
