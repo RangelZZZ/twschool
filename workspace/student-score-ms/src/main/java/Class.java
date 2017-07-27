@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Class {
     private ArrayList<Student> students = new ArrayList<>();
-    private int medianScore;
 
     public ArrayList addStudent(Student student) {
 
