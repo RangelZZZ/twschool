@@ -1,5 +1,10 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class Class {
     private ArrayList<Student> students = new ArrayList<>();
@@ -12,8 +17,6 @@ public class Class {
     }
 
     public int getTotalScore() {
-        ArrayList<Student> selectedStudents = new ArrayList<>();
-
         int totalScore = 0;
 
         for (Student student : getStudents()) {
@@ -21,7 +24,6 @@ public class Class {
         }
         return totalScore;
     }
-
 
     public int getMedianScore() {
         ArrayList<Student> sortedStudents = sortStudentsByTotalScore();
@@ -36,11 +38,26 @@ public class Class {
     }
 
     private ArrayList<Student> sortStudentsByTotalScore() {
-        return (ArrayList<Student>) students.stream().sorted((s1, s2) -> s1.getTotalScore() - s2.getTotalScore()).collect(Collectors.toList());
+        return (ArrayList<Student>) students.stream().sorted((s1, s2) -> s1.getTotalScore() - s2.getTotalScore()).collect(toList());
 
     }
 
     public ArrayList<Student> getStudents() {
         return students;
     }
+
+    public List<Student> getSelectedStudent(ArrayList<String> studentIds) {
+        return students.stream().filter(stu -> this.isExits(studentIds, stu)).collect(toList());
+    }
+
+    private boolean isExits(ArrayList<String> studentIds, Student stu) {
+        String id = studentIds.stream().filter(s -> s.equals(stu.getId())).findAny().orElse(null);
+        if (id == null) {
+            return false;
+        }
+        return true;
+
+    }
 }
+
+

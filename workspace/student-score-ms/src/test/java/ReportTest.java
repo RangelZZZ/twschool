@@ -20,7 +20,7 @@ public class ReportTest {
         klass.addStudent(student1);
         klass.addStudent(student2);
 
-        String studentScoreList = new Report(klass).printStudentScoreList();
+        String studentScoreList = new Report(klass).generateScoreList();
 
         System.out.println(studentScoreList);
         assertThat(studentScoreList, is("成绩单\n" +
