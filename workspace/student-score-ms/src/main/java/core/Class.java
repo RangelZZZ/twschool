@@ -1,8 +1,7 @@
+package core;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -18,7 +17,6 @@ public class Class {
 
     public int getTotalScore() {
         int totalScore = 0;
-
         for (Student student : getStudents()) {
             totalScore += student.getTotalScore();
         }

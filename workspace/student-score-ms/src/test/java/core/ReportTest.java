@@ -1,3 +1,8 @@
+package core;
+
+import core.Class;
+import core.Report;
+import core.Student;
 import org.junit.Test;
 
 import java.util.ArrayList;

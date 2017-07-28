@@ -1,12 +1,13 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import org.junit.Assert;
+package core;
+
+import core.Class;
+import core.Student;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Mockito.when;
 
 public class ClassTest {
 

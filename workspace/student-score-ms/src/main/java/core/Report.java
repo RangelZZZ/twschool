@@ -1,3 +1,6 @@
+package core;
+
+import core.Class;
 
 public class Report {
 
