@@ -1,14 +1,18 @@
 package interator_layer;
 
 import core.Class;
+import core.Report;
 import core.Student;
 import shell.Menu;
 import util.Constant;
 import util.ParseUtil;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Service {
+
+    public static Class klass = new Class();
 
     public static void addStudent(String studentInformation) {
         if (!ParseUtil.judgeStudentInputFormat(studentInformation)) {
@@ -18,7 +22,7 @@ public class Service {
 
         } else {
             Student student = ParseUtil.extractStudentInformation(studentInformation);
-            new Class().addStudent(student);
+            klass.addStudent(student);
 
             String addStudentPromptionInformation = "学生" + student.getName() + "的成绩被添加\n";
             System.out.println(addStudentPromptionInformation);
@@ -28,6 +32,17 @@ public class Service {
 
     }
 
-    public static void printStudentScoreList(String next) {
+    public static void printStudentScoreList(String inputStudentIds) {
+        if (!ParseUtil.judgeStudentInputIdsFormat(inputStudentIds)) {
+            System.out.println(Constant.PrintStudentScorePromptInformationWhenInputErr);
+            Scanner sc = new Scanner(System.in);
+            printStudentScoreList(sc.next());
+        } else {
+            ArrayList<String> studentIds = ParseUtil.extractStudentIds(inputStudentIds);
+
+            Report report = new Report(klass);
+            System.out.println(report.generateScoreList(studentIds));
+            new Menu().disPlayMenu();
+        }
     }
 }

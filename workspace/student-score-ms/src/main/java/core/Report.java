@@ -1,7 +1,8 @@
 package core;
 
-import core.Class;
 import util.Constant;
+
+import java.util.ArrayList;
 
 public class Report {
 
@@ -11,10 +12,9 @@ public class Report {
         this.klass = klass;
     }
 
-    private StringBuilder buildScoreList() {
+    private StringBuilder buildScoreList(ArrayList<Student> selectedStudents) {
         StringBuilder scoreList = new StringBuilder();
-
-        klass.getStudents().stream().map(s -> generateScoreListItem(s)).forEach(s -> scoreList.append(s).append(Constant.SEPARATOR));
+        selectedStudents.stream().map(s -> generateScoreListItem(s)).forEach(s -> scoreList.append(s).append(Constant.SEPARATOR));
 
         return scoreList;
     }
@@ -25,16 +25,18 @@ public class Report {
                 + "|" + student.getAverageScore() + "|" + student.getTotalScore();
     }
 
-    public String generateScoreList() {
+    public String generateScoreList(ArrayList<String> studentIds) {
+        ArrayList<Student> selectedStudents = (ArrayList<Student>) klass.getSelectedStudents(studentIds);
+
 
         String scoreListText = "成绩单" + Constant.SEPARATOR
                 + "姓名|数学|语文|英语|编程|平均分|总分" + Constant.SEPARATOR
                 + "========================" + Constant.SEPARATOR;
 
-        return scoreListText + buildScoreList()
+        return scoreListText + buildScoreList(selectedStudents)
                 + "========================" + Constant.SEPARATOR
-                + "全班总平均分：" + klass.getTotalScore() + Constant.SEPARATOR
-                + "全班总分中位数：" + klass.getMedianScore() + Constant.SEPARATOR;
+                + "全班总平均分：" + klass.getTotalScore(selectedStudents) + Constant.SEPARATOR
+                + "全班总分中位数：" + klass.getMedianScore(selectedStudents) + Constant.SEPARATOR;
     }
 }
 

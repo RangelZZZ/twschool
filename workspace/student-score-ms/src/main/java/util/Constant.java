@@ -12,5 +12,6 @@ public class Constant {
             + "分数，语文：分数，英语：分数，编程：分数）：\n";
     public static final String SEPARATOR = "\n";
     public static final String PrintStudentScorePromptInformation = "请输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：\n";
+    public static final String PrintStudentScorePromptInformationWhenInputErr = "请按正确的格式输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：\n";
 
 }

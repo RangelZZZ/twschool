@@ -1,8 +1,5 @@
 package core;
 
-import core.Class;
-import core.Report;
-import core.Student;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -25,7 +22,11 @@ public class ReportTest {
         klass.addStudent(student1);
         klass.addStudent(student2);
 
-        String studentScoreList = new Report(klass).generateScoreList();
+        ArrayList<String> studentIds = new ArrayList<>();
+        studentIds.add("001");
+        studentIds.add("002");
+
+        String studentScoreList = new Report(klass).generateScoreList(studentIds);
 
         System.out.println(studentScoreList);
         assertThat(studentScoreList, is("成绩单\n" +
