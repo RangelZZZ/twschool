@@ -1,8 +1,7 @@
-package Util;
+package util;
 
 import core.Student;
 import org.junit.Test;
-import util.ParseUtil;
 
 import java.util.ArrayList;
 

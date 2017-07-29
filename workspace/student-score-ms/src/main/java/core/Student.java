@@ -16,7 +16,6 @@ public class Student {
         this.englishScore = englishScore;
         this.programScore = programScore;
     }
-
     public String getName() {
         return name;
     }

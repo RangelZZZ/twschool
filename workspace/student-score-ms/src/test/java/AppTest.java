@@ -1,4 +1,4 @@
-import interactor_layer.Constant;
+import util.Constant;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static junit.framework.TestCase.assertEquals;
 
 public class AppTest {
