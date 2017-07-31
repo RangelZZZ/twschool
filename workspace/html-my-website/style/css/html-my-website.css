@@ -1,4 +1,4 @@
-.nav-bar{
+.logo-bar{
     height: 90px;
     background-color:black;
 }
@@ -16,4 +16,21 @@
     display: block;
     padding-top: 30px;
     margin-top: -67px;
+}
+
+.nav-list {
+    margin-right: 78px;
+    float: right;
+    margin-top: -52px;
+    color:white ;
+}
+.nav-list li{
+    display: inline-block;
+    float: right;
+    padding-left: 30px;
+}
+
+.left-nav{
+    background-color: gainsboro;
+    width: 200px;
 }
