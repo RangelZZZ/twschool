@@ -1,36 +1,64 @@
-.logo-bar{
+*{
+    margin:0;
+}
+
+.logo-bar {
     height: 90px;
-    background-color:black;
+    background-color: black;
+    position: relative;
 }
 
-.logo-img{
+.logo-img {
     width: 50px;
-    height: 50px;
-    margin-top: 17px;
-    margin-left: 30px;
+    position: absolute;
+    top: 25%;
+    left: 4%;
 }
 
-.logo-text{
+.logo-text {
     color: white;
-    margin-left: 96px;
-    display: block;
-    padding-top: 30px;
-    margin-top: -67px;
+    margin-left: 125px;
+    line-height: 90px;
 }
 
 .nav-list {
     margin-right: 78px;
     float: right;
-    margin-top: -52px;
-    color:white ;
-}
-.nav-list li{
-    display: inline-block;
-    float: right;
-    padding-left: 30px;
+    color: white;
 }
 
-.left-nav{
+.nav-list li {
+    display: inline-block;
+    padding-left: 30px;
+    list-style: none;
+    line-height: 90px;
+}
+
+.left-nav-bar {
     background-color: gainsboro;
-    width: 200px;
+    width: 8%;
+    list-style: none;
+}
+
+.left-nav-bar li {
+    padding-top: 24px;
+}
+
+.last-nav {
+    padding-bottom: 18px;
+}
+
+.article {
+    float: right;
+    width: 89%;
+}
+
+.article-content {
+    width: 50%;
+    background-color: #00b3ee;
+    margin-top: 40px;
+}
+
+.article-content p {
+    text-indent: 10%;
 }
