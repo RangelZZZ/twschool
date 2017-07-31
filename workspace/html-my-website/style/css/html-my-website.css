@@ -1,5 +1,5 @@
-*{
-    margin:0;
+* {
+    margin: 0;
 }
 
 .logo-bar {
@@ -19,6 +19,7 @@
     color: white;
     margin-left: 125px;
     line-height: 90px;
+    overflow: hidden;
 }
 
 .nav-list {
@@ -32,6 +33,7 @@
     padding-left: 30px;
     list-style: none;
     line-height: 90px;
+    overflow: hidden;
 }
 
 .left-nav-bar {
@@ -42,6 +44,11 @@
 
 .left-nav-bar li {
     padding-top: 24px;
+    padding-left: 3%;
+}
+
+.body-part {
+    position: relative;
 }
 
 .last-nav {
@@ -49,16 +56,23 @@
 }
 
 .article {
-    float: right;
     width: 89%;
+    position: absolute;
+    top: 5%;
+    left: 15%
+
 }
 
 .article-content {
     width: 50%;
-    background-color: #00b3ee;
-    margin-top: 40px;
+    text-align: justify;
+}
+
+.article-content h3 {
+    margin-bottom: 35px;
 }
 
 .article-content p {
-    text-indent: 10%;
+    margin-bottom: 20px;
 }
+
