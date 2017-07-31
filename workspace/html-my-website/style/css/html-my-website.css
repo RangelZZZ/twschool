@@ -76,3 +76,10 @@
     margin-bottom: 20px;
 }
 
+.article-img {
+    position: absolute;
+    top: 15%;
+    left: 70%;
+}
+
+
