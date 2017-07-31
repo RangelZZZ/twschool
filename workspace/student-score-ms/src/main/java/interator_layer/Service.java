@@ -27,7 +27,6 @@ public class Service {
             String addStudentPromptionInformation = "学生" + student.getName() + "的成绩被添加\n";
             System.out.println(addStudentPromptionInformation);
 
-            new Menu().disPlayMenu();
         }
 
     }
@@ -42,7 +41,6 @@ public class Service {
 
             Report report = new Report(klass);
             System.out.println(report.generateScoreList(studentIds));
-            new Menu().disPlayMenu();
         }
     }
 }

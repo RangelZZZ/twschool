@@ -29,6 +29,5 @@ public class AppTest {
         outContent.reset();
         App.main(null);
         assertEquals(Constant.DisplayMenu, outContent.toString().trim());
-
     }
 }

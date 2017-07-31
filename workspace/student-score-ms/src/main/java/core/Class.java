@@ -36,12 +36,12 @@ public class Class {
     }
 
     private ArrayList<Student> sortStudentsByTotalScore(ArrayList<Student> selectedStudents) {
-        return (ArrayList<Student>) selectedStudents.stream().sorted((s1, s2) -> s1.getTotalScore() - s2.getTotalScore()).collect(toList());
 
+        return (ArrayList<Student>) selectedStudents.stream().sorted((s1, s2) -> s1.getTotalScore() - s2.getTotalScore()).collect(toList());
     }
 
     public List<Student> getSelectedStudents(ArrayList<String> studentIds) {
-        List<Student> selectedStudents = students.stream().filter(stu -> this.isExits(studentIds, stu)).collect(toList());
+        List<Student> selectedStudents = students.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
 
         return selectedStudents;
     }
