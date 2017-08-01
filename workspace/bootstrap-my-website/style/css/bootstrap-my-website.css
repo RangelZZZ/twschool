@@ -29,12 +29,58 @@ body {
     border-radius: 3px;
 }
 
-a {
+.nav-pills {
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+
+.nav-pills a {
     color: #ffffff;
 }
 
-.nav-pills{
-    margin-top: 23px;
-    margin-bottom: 23px;
+.main {
+    min-height: 800px;
+    text-align: center;
+    background-size: 100% auto;
+    background-image: url("../img/star.jpg");
+    opacity: 0.9;
+    color: #ffffff;
+}
 
+.main h1 {
+    font-size: 100px;
+    padding-top: 100px;
+}
+
+.main h2 {
+    font-size: 50px;
+    padding-top: 20px;
+    padding-bottom: 90px;
+}
+
+.main a {
+    color: #ffffff;
+    border: 3px solid #ffffff;
+    border-radius: 3px;
+    padding: 15px 30px;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.feature {
+
+}
+
+.key-feature {
+    color: #777;
+    font-weight: 300;
+    margin-top: 90px;
+    text-align: center;
+}
+
+.key-feature h2{
+    font-size: 30px;
+    letter-spacing: 3px;
 }
