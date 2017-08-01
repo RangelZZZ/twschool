@@ -61,11 +61,9 @@ html {
 }
 
 .article {
-    width: 85%;
     position: absolute;
     top: 5%;
     left: 15%
-
 }
 
 .article-content {
