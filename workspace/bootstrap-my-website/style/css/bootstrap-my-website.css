@@ -70,17 +70,32 @@ body {
 }
 
 .feature {
+    text-align: center;
+}
 
+.feature img {
+    width: 20%;
+}
+
+.feature h3 {
+    font-size: 20px;
+    color: #999;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.feature h5{
+    margin-bottom: 40px;
 }
 
 .key-feature {
     color: #777;
     font-weight: 300;
     margin-top: 90px;
-    text-align: center;
 }
 
-.key-feature h2{
+.key-feature h2 {
     font-size: 30px;
     letter-spacing: 3px;
+    margin-bottom: 50px;
 }
