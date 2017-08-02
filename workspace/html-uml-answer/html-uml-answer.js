@@ -26,9 +26,11 @@ function getStudentAnswer() {
 
 function getStudentInfo() {
     return {
-        id: $(".personal-info1").val(),
+        schoolId: $(".personal-info1").val(),
         class: $(".personal-info2").val(),
-        name: $(".personal-info3").val()
+        name: $(".personal-info3").val(),
+        personalId:$(".personal-info4").val(),
+        email:$(".personal-info5").val()
     }
 }
 
@@ -43,18 +45,18 @@ function getBlankQuizAnswer() {
 
 function getSingleChoiceAnswer() {
     return {
-        firstSingleChoice: $("input[name='a']:checked").val(),
+        singleChoice1: $("input[name='a']:checked").val(),
 
-        secondSingleChoice: $("input[name='b']:checked").val()
+        singleChoice2: $("input[name='b']:checked").val()
     };
 }
 
 function getMultipleChoiceAnswer() {
     return {
-        multipleChoiceAnswer1: $("input[name='c']:checked").map((index, e) => {
+        multipleChoice1: $("input[name='c']:checked").map((index, e) => {
             return e.value;
         }).get(),
-        multipleChoiceAnswer2: $("input[name='d']:checked").map((index, e) => {
+        multipleChoice2: $("input[name='d']:checked").map((index, e) => {
             return e.value;
         }).get()
     }
@@ -62,9 +64,9 @@ function getMultipleChoiceAnswer() {
 
 function getJudgeAnswer() {
     return {
-        firstJudgeAnswer: $("input[name='e']:checked").val(),
+        judgeAnswer1: $("input[name='e']:checked").val(),
 
-        secondJudgeAnswer: $("input[name='f']:checked").val()
+        judgeAnswer2: $("input[name='f']:checked").val()
     };
 }
 
