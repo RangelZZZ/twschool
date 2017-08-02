@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.submit').click(function () {
+    $('.submit').submit(function () {
         const studentAnswer = getStudentAnswer();
         sessionStorage.setItem("studentAnswer", JSON.stringify(studentAnswer));
         window.location.replace("html-uml-answer-display.html");
