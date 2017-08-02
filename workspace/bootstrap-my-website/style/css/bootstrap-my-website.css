@@ -84,7 +84,7 @@ body {
     letter-spacing: 3px;
 }
 
-.feature h5{
+.feature h5 {
     margin-bottom: 40px;
 }
 
@@ -98,4 +98,43 @@ body {
     font-size: 30px;
     letter-spacing: 3px;
     margin-bottom: 50px;
+}
+
+.people-introduce {
+    text-align: center;
+    background-color: #EFEFEF;
+}
+
+.introduction-theme {
+    color: #777;
+    font-weight: 300;
+    margin-top: 90px;
+    letter-spacing: 3px;
+}
+
+.introduction-content {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.people-introduce img {
+    width: 20%;
+}
+
+.footer {
+    background: #222;
+    color: #777;
+    padding: 40px;
+    text-align: center;
+}
+
+.footer img {
+    width: 80px;
+    height: 80px;
+    border-radius: 3px;
+}
+
+.footer h4 {
+    font-weight: 400;
+    font-size: 20px;
 }
