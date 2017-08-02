@@ -1,19 +1,27 @@
+$(document).ready(function () {
+    $('.submit').click(function () {
+        const studentAnswer = getStudentAnswer();
+        sessionStorage.setItem("studentAnswer", JSON.stringify(studentAnswer));
+        window.location.replace("html-uml-answer-display.html");
+    });
+});
+
+
 function getStudentAnswer() {
-    let studentScore = {};
-    studentScore.studentInfo = getStudentInfo();
+    let studentAnswer = {};
+    studentAnswer.studentInfo = getStudentInfo();
 
-    studentScore.blankQuizAnswer = getBlankQuizAnswer();
+    studentAnswer.blankQuizAnswer = getBlankQuizAnswer();
 
-    studentScore.singleChoiceAnswer = getSingleChoiceAnswer();
+    studentAnswer.singleChoiceAnswer = getSingleChoiceAnswer();
 
-    studentScore.multipleChoiceAnswer = getMultipleChoiceAnswer();
+    studentAnswer.multipleChoiceAnswer = getMultipleChoiceAnswer();
 
-    studentScore.judgeAnswer = getJudgeAnswer();
+    studentAnswer.judgeAnswer = getJudgeAnswer();
 
-    studentScore.shortAnswer = getShortAnswer();
+    studentAnswer.shortAnswer = getShortAnswer();
 
-    return studentScore;
-
+    return studentAnswer;
 }
 
 function getStudentInfo() {
@@ -37,7 +45,7 @@ function getSingleChoiceAnswer() {
     return {
         firstSingleChoice: $("input[name='a']:checked").val(),
 
-        secondSinglechoce: $("input[name='b']:checked").val()
+        secondSingleChoice: $("input[name='b']:checked").val()
     };
 }
 
