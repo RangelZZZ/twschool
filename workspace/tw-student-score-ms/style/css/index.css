@@ -50,7 +50,7 @@
     color: lightpink;
 }
 
-.glyphicon {
+.header > a > i {
     font-size: 37px;
     padding-right: 30px;
     margin-bottom: 20px;
@@ -74,7 +74,7 @@
 }
 
 .input-group {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .info-form {
@@ -91,4 +91,40 @@
     margin-bottom: 40px;
 }
 
+.search-student {
+    float: right;
+    background-color: lavenderblush;
+    position: absolute;
+    width: 85%;
+    margin-left: 197px;
+    color: burlywood;
+    text-align: center;
+    margin-top: -283px;
+}
 
+.search-student h2 {
+    padding-right: 142px;
+    padding-top: 30px;
+}
+
+.search-button {
+    width: 50%;
+    margin-left: 200px;
+}
+
+.search-button input {
+    height: 50px;
+    font-size: 20px;
+    width: 30%
+}
+
+.search-button span {
+    color: pink;
+    font-size: 30px
+}
+
+.student-list {
+    margin-top: 35px;
+    color: darkgray;
+    font-size: 18px;
+}
