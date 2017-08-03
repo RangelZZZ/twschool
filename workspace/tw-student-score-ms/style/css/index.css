@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: pink;
+    color: white;
+}
+
+.header h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    letter-spacing: 3px;
+}
+
+.navigation {
+    width: 15%;
+    background-color: papayawhip;
+    font-size: 25px;
+}
+
+
+.nav-item {
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+a {
+    color: lightpink;
+    padding-left: 33px;
+
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightpink;
+}
+
+a:visited {
+    color: lightpink;
+}
+
+.glyphicon {
+    font-size: 37px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.add-student{
+    float: right;
+    background-color:lavenderblush;
+    position: absolute;
+    width: 85%;
+    margin-left: 197px;
+    color: burlywood;
+    height: 500px;
+    text-align: center;
+    margin-top: -283px;
+}
+
+.add-student h2{
+    padding-right: 216px;
+    padding-top: 30px;
+}
+
+.input-group{
+
+}
