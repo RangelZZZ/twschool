@@ -6,93 +6,97 @@
     <link href="html-uml-answer.css" rel="stylesheet">
 </head>
 <body>
-<section>
-    <h2>统一建模语言理论测试</h2>
-    <table>
-        <tr>
-            <td>考试系统：统一建模语言&nbsp;&nbsp;</td>
-            <td>时间：100分钟&nbsp;&nbsp;</td>
-            <td>得分：100&nbsp;&nbsp;</td>
-        </tr>
-        <tr>
-            <td>班级：<input type="text" class="personal-info1" placeholder="1班"></td>
-            <td>学号：<input type="text" class="personal-info2" placeholder="001"></td>
-            <td>姓名：<input type="text" class="personal-info3" placeholder=" 王小闹"></td>
-            <td>身份证号：<input type="text" class="personal-info4"></td>
-            <td>邮箱：<input type="text" class="personal-info5"></td>
-        </tr>
-    </table>
-</section>
+<form method="post" id="my-form">
+    <section>
+        <h2>统一建模语言理论测试</h2>
+        <table>
+            <tr>
+                <td>考试系统：统一建模语言&nbsp;&nbsp;</td>
+                <td>时间：100分钟&nbsp;&nbsp;</td>
+                <td>得分：100&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td>班级：<input type="text" class="personal-info1" name="class" placeholder="1班"></td>
+                <td>学号：<input type="text" class="personal-info2" name="schoolId" placeholder="001"></td>
+                <td>姓名：<input type="text" class="personal-info3" name="name" placeholder="王小闹"></td>
+                <td>身份证号：<input type="text" class="personal-info4" name="personalId"></td>
+                <td>邮箱：<input type="text" class="personal-info5" name="email"></td>
+            </tr>
+        </table>
+    </section>
 
-<section>
-    <h3>一、 填空题(每空5分，共20分)</h3>
-    <p>1. UML的全称是：<input type="text" class="blankQuiz1"></p>
-    <p>2. 对象最突出的特点是：<input type="text" class="blankQuiz2">
-        <input type="text" class="blankQuiz3"> <input type="text" class="blankQuiz4">
-    </p>
-</section>
+    <section>
+        <h3>一、 填空题(每空5分，共20分)</h3>
+        <p>1. UML的全称是：<input type="text" class="blankQuiz1"></p>
+        <p>2. 对象最突出的特点是：<input type="text" class="blankQuiz2">
+            <input type="text" class="blankQuiz3"> <input type="text" class="blankQuiz4">
+        </p>
+    </section>
 
-<section>
-    <h3>二、选择题(每题10分，共20分)</h3>
-    <p>1. UML与软件工程的关系是：<br>
-        <input type="radio" name="a" value="A">UML就是软件工程<br>
-        <input type="radio" checked name="a" value="B">UML参加软件工程的各个阶段<br>
-        <input type="radio" name="a" value="C">UML与软件工程无关<br>
-        <input type="radio" name="a" value="D">（D）UML是软件工程的一部分<br>
-    </p>
+    <section>
+        <h3>二、选择题(每题10分，共20分)</h3>
+        <p>1. UML与软件工程的关系是：<br>
+            <input type="radio" name="a" value="A">UML就是软件工程<br>
+            <input type="radio" checked name="a" value="B">UML参加软件工程的各个阶段<br>
+            <input type="radio" name="a" value="C">UML与软件工程无关<br>
+            <input type="radio" name="a" value="D">（D）UML是软件工程的一部分<br>
+        </p>
 
-    <p>2. Java语言支持：<br>
-        <input type="radio" name="b" value="A">（A）单继承<br>
-        <input type="radio" checked name="b" value="B">（B）多继承<br>
-        <input type="radio" name="b" value="C">（C）单继承和多继承都支持<br>
-        <input type="radio" name="b" value="D">（D）单继承和多继承都不支持<br>
-    </p>
-</section>
+        <p>2. Java语言支持：<br>
+            <input type="radio" name="b" value="A">（A）单继承<br>
+            <input type="radio" checked name="b" value="B">（B）多继承<br>
+            <input type="radio" name="b" value="C">（C）单继承和多继承都支持<br>
+            <input type="radio" name="b" value="D">（D）单继承和多继承都不支持<br>
+        </p>
+    </section>
 
-<section>
-    <h3>三、多选题(每题10分，共20分)</h3>
-    <p>1. 用例的粒度分为以下哪三种：<br>
-        <input type="checkbox" checked name="c" value="A">（A）单继承<br>
-        <input type="checkbox" checked name="c" value="B">（B）多继承<br>
-        <input type="checkbox" name="c" value="C">（C）单继承和多继承都支持<br>
-        <input type="checkbox" checked name="c" value="D">（D）单继承和多继承都不支持<br>
-    </p>
+    <section>
+        <h3>三、多选题(每题10分，共20分)</h3>
+        <p>1. 用例的粒度分为以下哪三种：<br>
+            <input type="checkbox" checked name="c" value="A">（A）单继承<br>
+            <input type="checkbox" checked name="c" value="B">（B）多继承<br>
+            <input type="checkbox" name="c" value="C">（C）单继承和多继承都支持<br>
+            <input type="checkbox" checked name="c" value="D">（D）单继承和多继承都不支持<br>
+        </p>
 
-    <p>2. 类图由以下那三部分构成：<br>
-        <input type="checkbox" checked name="d" value="A">（A）名称(name)<br>
-        <input type="checkbox" checked name="d" value="B">（B）属性(Attribute)<br>
-        <input type="checkbox" checked name="d" value="C">（C）操作(operation)<br>
-        <input type="checkbox" name="d" value="D">（D）方法(Function)<br>
-    </p>
-</section>
+        <p>2. 类图由以下那三部分构成：<br>
+            <input type="checkbox" checked name="d" value="A">（A）名称(name)<br>
+            <input type="checkbox" checked name="d" value="B">（B）属性(Attribute)<br>
+            <input type="checkbox" checked name="d" value="C">（C）操作(operation)<br>
+            <input type="checkbox" name="d" value="D">（D）方法(Function)<br>
+        </p>
+    </section>
 
-<section>
-    <h3>四、判断题(每题10分，共20分)</h3>
-    <p>
-        <span>1.用例图只是用于和客户交流和沟通的，用于确定需求。</span>
-        <span><input type="radio" name="e" value="√">√</span>
-        <span><input type="radio" checked name="e" value="×">×</span>
-    </p>
+    <section>
+        <h3>四、判断题(每题10分，共20分)</h3>
+        <p>
+            <span>1.用例图只是用于和客户交流和沟通的，用于确定需求。</span>
+            <span><input type="radio" name="e" value="√">√</span>
+            <span><input type="radio" checked name="e" value="×">×</span>
+        </p>
 
-    <p>
-        <span>2.在状态图中，终止状态允许有多个或任意一个</span>
-        <span><input type="radio" name="f" value="√">√</span>
-        <span><input type="radio" checked name="f" value="×">×</span>
-    </p>
-</section>
+        <p>
+            <span>2.在状态图中，终止状态允许有多个或任意一个</span>
+            <span><input type="radio" name="f" value="√">√</span>
+            <span><input type="radio" checked name="f" value="×">×</span>
+        </p>
+    </section>
 
-<section>
-    <h3>五、简答题(每题10分，共20分)</h3>
-    <p>1.简述什么是模型以及模型的表现形式？<br>
-        <textarea class="textArea">模型是对现实世界的简化和抽象，模型是对所研究的系统、过程、事物或概念的一种表达形式。可以是物理实体；也可以是某种图形；或者是一种数学表达式。  </textarea>
-    </p>
-</section>
+    <section>
+        <h3>五、简答题(每题10分，共20分)</h3>
+        <p>1.简述什么是模型以及模型的表现形式？<br>
+            <textarea
+                    class="textArea">模型是对现实世界的简化和抽象，模型是对所研究的系统、过程、事物或概念的一种表达形式。可以是物理实体；也可以是某种图形；或者是一种数学表达式。  </textarea>
+        </p>
+    </section>
 
-<section>
-    <button id="submit" type="submit" class="submit">计算分数</button>
-</section>
+    <section>
+        <button id="submit" type="submit" class="submit">计算分数</button>
+    </section>
+</form>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="html-uml-answer.js"></script>
 </html>

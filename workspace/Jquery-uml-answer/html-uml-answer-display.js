@@ -8,8 +8,8 @@ $(document).ready(function () {
 function displayStudentInfo(studentAnswer) {
     const studentInfo = studentAnswer.studentInfo;
 
-    $(".personal-info1").attr("value", studentInfo.schoolId);
     $(".personal-info2").attr("value", studentInfo.class);
+    $(".personal-info1").attr("value", studentInfo.schoolId);
     $(".personal-info3").attr("value", studentInfo.name);
     $(".personal-info4").attr("value", studentInfo.personalId);
     $(".personal-info5").attr("value", studentInfo.email);

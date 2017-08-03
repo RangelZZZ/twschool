@@ -1,8 +1,46 @@
 $(document).ready(function () {
-    $('.submit').submit(function () {
-        const studentAnswer = getStudentAnswer();
-        sessionStorage.setItem("studentAnswer", JSON.stringify(studentAnswer));
-        window.location.replace("html-uml-answer-display.html");
+    $("#my-form").submit(function (e) {
+        console.log("into submit");
+        e.preventDefault();
+    });
+
+    $("#my-form").validate({
+        rules: {
+            class: "required",
+            schoolId: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            personalId: {
+                required: true,
+                minlength: 5
+            },
+            name: "required"
+        },
+        messages: {
+            name: "Please enter your name",
+            class: "Please enter your class",
+            personalId: {
+                required: "Please provide a personalId",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            email: "Please enter a valid email address",
+            schoolId: "Please enter your name"
+        },
+
+        submitHandler: function (form) {
+            //form.submit();
+            console.log("validate");
+
+
+            const studentAnswer = getStudentAnswer();
+
+            sessionStorage.setItem("studentAnswer", JSON.stringify(studentAnswer));
+            window.location.replace("html-uml-answer-display.html");
+
+            form.submit();
+        }
     });
 });
 
@@ -29,8 +67,8 @@ function getStudentInfo() {
         schoolId: $(".personal-info1").val(),
         class: $(".personal-info2").val(),
         name: $(".personal-info3").val(),
-        personalId:$(".personal-info4").val(),
-        email:$(".personal-info5").val()
+        personalId: $(".personal-info4").val(),
+        email: $(".personal-info5").val()
     }
 }
 
