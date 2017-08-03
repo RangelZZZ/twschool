@@ -1,8 +1,7 @@
-let studentList = [];
-localStorage.setItem("studentList", JSON.stringify(studentList));
-
 function addStudent(studentInformation) {
-    const studentList = JSON.parse(localStorage.getItem("studentList"));
+    const studentList = JSON.parse(localStorage.getItem("studentList")) || [];
+    const studentId = studentList.length + 1;
+    studentInformation.push({"name": "studentId", "value": studentId});
     studentList.push(studentInformation);
     localStorage.setItem("studentList", JSON.stringify(studentList));
 }
@@ -50,8 +49,8 @@ $(document).ready(function () {
             event.preventDefault();
             const studentInformation = $("#student-form").serializeArray();
             addStudent(studentInformation);
+            form.submit();
         }
     });
-
 
 });
