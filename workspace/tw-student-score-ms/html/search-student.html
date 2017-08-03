@@ -6,6 +6,21 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../style/css/index.css" rel="stylesheet">
+
+    <script id="myTemplate" type="text/x-jquery-tmpl">
+
+              <tr id="table-display">
+                    <td>${username}</td>
+                    <td>${grender}</td>
+                    <td>${studentId}</td>
+                    <td>${klass}</td>
+                    <td>${nativeplace}</td>
+                    <td>${mobilePhone}</td>
+                    <td>${email}</td>
+                    <td>${personalId}</td>
+               </tr>
+    </script>
+
 </head>
 <body>
 <div class="container-fluid">
@@ -31,13 +46,13 @@
     <div class="row search-student">
         <h2>学生信息查询</h2>
         <div class="input-group search-button">
-            <input type="text" class="form-control search-input"  placeholder="请输入学生的学号或姓名">
+            <input type="text" class="form-control search-input" placeholder="请输入学生的学号或姓名">
             <span class="input-group-addon glyphicon glyphicon-search"></span>
         </div>
 
         <div class="student-list">
             <table class="table table-hover">
-                <tr>
+                <tr id="rows">
                     <td>姓名</td>
                     <td>性别</td>
                     <td>学号</td>
@@ -46,16 +61,6 @@
                     <td>电话</td>
                     <td>邮箱</td>
                     <td>身份证号</td>
-                </tr>
-                <tr>
-                    <td>郭茹</td>
-                    <td>女</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>4班</td>
-                    <td>山西</td>
-                    <td>123@qq.com</td>
-                    <td>45678903456789</td>
                 </tr>
             </table>
 
@@ -67,6 +72,12 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
-<script src="../js/serach-student.js"></script>
+<script src="../js/search-student.js"></script>
+
+
 </html>
+
+
+
