@@ -71,5 +71,18 @@ a:visited {
 }
 
 .input-group{
+    margin-top: 10px;
+}
 
+.info-form{
+    margin-left: 225px;
+    width: 45%;
+    margin-top: 30px;
+}
+
+.btn{
+    padding-left: 25px;
+    margin-top: 25px;
+    padding-right: 25px;
+    margin-left: -215px;
 }
