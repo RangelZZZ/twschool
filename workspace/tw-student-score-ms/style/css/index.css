@@ -60,7 +60,6 @@ a:visited {
     width: 85%;
     margin-left: 197px;
     color: burlywood;
-    height: 500px;
     text-align: center;
     margin-top: -283px;
 }
@@ -85,4 +84,5 @@ a:visited {
     margin-top: 25px;
     padding-right: 25px;
     margin-left: -215px;
+    margin-bottom: 40px;
 }
