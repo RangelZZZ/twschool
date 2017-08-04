@@ -1,16 +1,26 @@
 package com.student.conroller;
 
 import bean.Employee;
+import com.fasterxml.jackson.annotation.JacksonInject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import service.EmployeeInMemoryService;
+import service.EmployeeService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class EmployeeController {
+
+    private EmployeeService employeeService;
+
+    @Autowired
+    public void setEmployeeService(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     private List<Employee> employeeList = new ArrayList<>();
 
