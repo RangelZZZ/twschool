@@ -39,7 +39,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Map<Integer, Employee>> update(@PathVariable("id") int id, @RequestBody Employee employee) {
+    public ResponseEntity<Map<Integer, Employee>> updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
         if (employees.get(id) == null) {
             return new ResponseEntity<>((Map<Integer, Employee>) null, HttpStatus.NOT_FOUND);
         }
@@ -47,6 +47,17 @@ public class EmployeeController {
         employees.get(1).setName(employee.getName());
         employees.get(1).setAge(employee.getAge());
 
+        return new ResponseEntity<Map<Integer, Employee>>((Map<Integer, Employee>) null, HttpStatus.NO_CONTENT);
+    }
+
+
+    @RequestMapping(value = "/employees/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Map<Integer, Employee>> deleteEmployee(@PathVariable("id") int id) {
+        if (employees.get(id) == null) {
+            return new ResponseEntity<>((Map<Integer, Employee>) null, HttpStatus.NOT_FOUND);
+        }
+
+        employees.remove(employees.get(id));
         return new ResponseEntity<Map<Integer, Employee>>((Map<Integer, Employee>) null, HttpStatus.NO_CONTENT);
     }
 
