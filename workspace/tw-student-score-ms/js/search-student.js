@@ -10,14 +10,13 @@ $(document).ready(function () {
             stu[a] = b;
         });
         newStudentList.push(stu);
-        $("#myTemplate").tmpl(newStudentList).appendTo("#rows")
+        displaySelectStudent(newStudentList);
     });
 
 
     $(".click").click(function () {
         let userInput = $(".search-input").val();
         let selectedStudent = newStudentList.find(student => student.username === userInput);
-        
         if (selectedStudent) {
             displaySelectStudent(selectedStudent);
         } else {
