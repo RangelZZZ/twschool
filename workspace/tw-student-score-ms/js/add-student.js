@@ -17,11 +17,11 @@ $(document).ready(function () {
             },
             personalId: {
                 required: true,
-                minlength: 1
+                minlength: 18
             },
             mobilePhone: {
                 required: true,
-                minlength: 1
+                minlength: 11
             },
             nativeplace: "required",
             grender: "required"
