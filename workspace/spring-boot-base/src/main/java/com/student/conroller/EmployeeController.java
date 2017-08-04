@@ -5,60 +5,65 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 public class EmployeeController {
 
-    Map<Integer, Employee> employees = new HashMap<>();
+    private List<Employee> employeeList = new ArrayList<>();
 
     @RequestMapping(value = "/employees", method = RequestMethod.POST)
     public ResponseEntity<Employee> addEmployees(@RequestBody Employee employee) {
-        employee.setId(1);
-        employees.put(1, employee);
-
+        employeeList.add(employee);
         return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
     }
 
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
-    public ResponseEntity<Map<Integer, Employee>> getEmployees() {
+    public ResponseEntity<List> getEmployees() {
 
-        return new ResponseEntity<Map<Integer, Employee>>(employees, HttpStatus.CREATED);
+        return new ResponseEntity<List>(employeeList, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Map<Integer, Employee>> getEmployeesById(@PathVariable("id") int id) {
-        System.out.println(id);
-        if (employees.get(id) == null) {
-            return new ResponseEntity<>((Map<Integer, Employee>) null, HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Employee> getEmployeesById(@PathVariable("id") int id) {
+        for (Employee employee : employeeList) {
+            if (employee.getId() == id) {
+                return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
 
-        return new ResponseEntity<Map<Integer, Employee>>(employees, HttpStatus.CREATED);
+            }
+        }
+        return new ResponseEntity<>((Employee) null, HttpStatus.OK);
+
     }
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Map<Integer, Employee>> updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
-        if (employees.get(id) == null) {
-            return new ResponseEntity<>((Map<Integer, Employee>) null, HttpStatus.NOT_FOUND);
+    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
+        for (Employee employee1 : employeeList) {
+            if (employee1.getId() == id) {
+                employee1.setName(employee.getName());
+                employee1.setAge(employee.getAge());
+
+                return new ResponseEntity<>((Employee) null, HttpStatus.NO_CONTENT);
+            }
         }
 
-        employees.get(1).setName(employee.getName());
-        employees.get(1).setAge(employee.getAge());
-
-        return new ResponseEntity<Map<Integer, Employee>>((Map<Integer, Employee>) null, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>((Employee) null, HttpStatus.NOT_FOUND);
     }
 
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Map<Integer, Employee>> deleteEmployee(@PathVariable("id") int id) {
-        if (employees.get(id) == null) {
-            return new ResponseEntity<>((Map<Integer, Employee>) null, HttpStatus.NOT_FOUND);
+    public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") int id) {
+        for (Employee employee1 : employeeList) {
+            if (employee1.getId() == id) {
+                employeeList.remove(employee1);
+                return new ResponseEntity<>((Employee) null, HttpStatus.NO_CONTENT);
+            }
         }
-
-        employees.remove(employees.get(id));
-        return new ResponseEntity<Map<Integer, Employee>>((Map<Integer, Employee>) null, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>((Employee) null, HttpStatus.NOT_FOUND);
     }
-
 }
+
+
