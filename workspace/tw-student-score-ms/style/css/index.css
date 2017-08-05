@@ -128,3 +128,29 @@
     color: darkgray;
     font-size: 18px;
 }
+
+.score-list-receipt {
+    float: right;
+    background-color: lavenderblush;
+    position: absolute;
+    width: 85%;
+    margin-left: 210px;
+    color: burlywood;
+    text-align: center;
+    margin-top: -283px;
+}
+
+.score-list-receipt h2 {
+    padding-right: 142px;
+    padding-top: 30px;
+}
+
+.score-list {
+    margin-top: 35px;
+    color: darkgray;
+    font-size: 18px;
+}
+
+.table-style{
+    text-align: right;
+}

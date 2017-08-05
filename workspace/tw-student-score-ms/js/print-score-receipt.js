@@ -13,12 +13,12 @@ $(function () {
     localStorage.setItem("scoreList", JSON.stringify(studentScoreList));
 
     const selectedStudentScoreList = JSON.parse(localStorage.getItem("scoreList"));
-    console.log(selectedStudentScoreList);
 
-    displaySelectScoreStudent(selectedStudentScoreList.studentScoreList);
+    displaySelectScoreStudent(selectedStudentScoreList);
 });
 
 function displaySelectScoreStudent(studentScoreList) {
-
-    $("#myTemplate").tmpl(studentScoreList).appendTo("#rows");
+    $("#myTemplate").tmpl(studentScoreList.studentScoreList).appendTo("#rows");
+    const allScoreArray = [{totalScore:studentScoreList.totalScore,medianScore:studentScoreList.medianScore}];
+    $("#totalScoreTemplete").tmpl(allScoreArray).appendTo("#rows");
 }
