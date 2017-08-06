@@ -38,6 +38,8 @@ public class EmployeeInMemoryService implements EmployeeService {
                 employee1.setAge(employee.getAge());
                 employee1.setId(id);
                 employee1.setName(employee.getName());
+                employee1.setMailAddress(employee.getMailAddress());
+                employee1.setOriginalAddress(employee.getOriginalAddress());
 
                 return true;
             }
