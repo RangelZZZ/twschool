@@ -1,5 +1,6 @@
 package com.student.conroller;
 
+import com.student.bean.Address;
 import com.student.bean.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +45,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Employee> updateEmployee(@PathVariable("id") int id, @RequestBody Employee employee) {
-        if (employeeService.updateEmployee(id, employee) == true) {
+        if (employeeService.updateEmployee(id, employee)) {
 
             return new ResponseEntity<>((Employee) null, HttpStatus.NO_CONTENT);
         }
@@ -54,11 +55,23 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Employee> deleteEmployee(@PathVariable("id") int id) {
-        if (employeeService.deleteEmployee(id) == true) {
+        if (employeeService.deleteEmployee(id)) {
             return new ResponseEntity<>((Employee) null, HttpStatus.NO_CONTENT);
 
         }
         return new ResponseEntity<>((Employee) null, HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value = "/employees/{id}/address/{addressType}", method = RequestMethod.PUT)
+    public ResponseEntity<Employee> updateEmployeeAddress(@PathVariable("id") int id,
+                                                          @PathVariable("addressType") String addressType,
+                                                          @RequestBody Address address) {
+
+        if (!employeeService.updateEmployeeAddressById(id, addressType, address)) {
+            return new ResponseEntity<>((Employee) null, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>((Employee) null, HttpStatus.NO_CONTENT);
     }
 }
 

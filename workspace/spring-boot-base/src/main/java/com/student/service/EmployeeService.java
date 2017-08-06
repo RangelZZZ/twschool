@@ -1,5 +1,6 @@
 package com.student.service;
 
+import com.student.bean.Address;
 import com.student.bean.Employee;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface EmployeeService {
     boolean updateEmployee(int id, Employee employee);
 
     boolean deleteEmployee(int id);
+
+    boolean updateEmployeeAddressById(int id, String addressType, Address address);
 }

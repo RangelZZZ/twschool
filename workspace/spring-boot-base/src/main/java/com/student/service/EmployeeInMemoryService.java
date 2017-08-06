@@ -1,5 +1,6 @@
 package com.student.service;
 
+import com.student.bean.Address;
 import com.student.bean.Employee;
 import org.springframework.stereotype.Service;
 
@@ -61,5 +62,24 @@ public class EmployeeInMemoryService implements EmployeeService {
 
     }
 
+    @Override
+    public boolean updateEmployeeAddressById(int id, String addressType, Address address) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                updateAddress(employee,addressType, address);
 
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void updateAddress(Employee employee,String addressType, Address address) {
+        if(addressType.equals("mailAddress")){
+            employee.setMailAddress(address);
+        }else{
+            employee.setOriginalAddress(address);
+        }
+    }
 }

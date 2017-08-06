@@ -11,6 +11,10 @@ public class Address {
         this.street = street;
     }
 
+    public Address(){
+
+    }
+
     public String getStreet() {
         return street;
     }
