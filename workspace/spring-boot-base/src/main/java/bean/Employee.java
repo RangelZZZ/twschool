@@ -5,10 +5,14 @@ public class Employee {
     private int age;
     private String name;
 
+    public Employee(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
     public void setId(int id) {
         this.id = id;
-        this.age = age;
-        this.name = name;
     }
 
     public int getId() {

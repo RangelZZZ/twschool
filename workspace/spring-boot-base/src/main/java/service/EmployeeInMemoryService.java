@@ -1,15 +1,17 @@
 package service;
 
 import bean.Employee;
+import org.springframework.stereotype.Service;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class EmployeeInMemoryService implements EmployeeService {
-    private List<Employee> employees = new LinkedList<>();
+    private List<Employee> employees = new ArrayList<>();
 
     @Override
-    public Employee getEmployee(String id) {
-        return null;
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
     }
 }
