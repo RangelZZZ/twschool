@@ -1,9 +1,13 @@
-package bean;
+package com.student.bean;
 
 public class Employee {
     private int id;
     private int age;
     private String name;
+
+    public Employee() {
+
+    }
 
     public Employee(int id, String name, int age) {
         this.id = id;
