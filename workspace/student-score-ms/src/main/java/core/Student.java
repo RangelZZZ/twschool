@@ -8,6 +8,10 @@ public class Student {
     private int englishScore = 0;
     private int programScore = 0;
 
+    public Student(){
+
+    }
+
     public Student(String name, String id, int mathScore, int chineseScore, int englishScore, int programScore) {
         this.name = name;
         this.id = id;
@@ -16,6 +20,9 @@ public class Student {
         this.englishScore = englishScore;
         this.programScore = programScore;
     }
+
+
+
     public String getName() {
         return name;
     }
