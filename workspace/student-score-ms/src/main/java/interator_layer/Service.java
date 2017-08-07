@@ -16,7 +16,6 @@ public class Service {
 
     public static void addStudent(String studentInformation) {
         if (!ParseUtil.judgeStudentInputFormat(studentInformation)) {
-            System.out.println(Constant.AddStudentPromptInformationWhenInputErr);
             Scanner sc = new Scanner(System.in);
             addStudent(sc.next());
 
