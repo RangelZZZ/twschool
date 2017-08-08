@@ -25,18 +25,18 @@ public class Report {
                 + "|" + student.getAverageScore() + "|" + student.getTotalScore();
     }
 
-    public String generateScoreList(ArrayList<String> studentIds) {
-        ArrayList<Student> selectedStudents = (ArrayList<Student>) klass.getSelectedStudents(studentIds);
-
-
-        String scoreListText = "成绩单" + Constant.SEPARATOR
-                + "姓名|数学|语文|英语|编程|平均分|总分" + Constant.SEPARATOR
-                + "========================" + Constant.SEPARATOR;
-
-        return scoreListText + buildScoreList(selectedStudents)
-                + "========================" + Constant.SEPARATOR
-                + "全班总平均分：" + klass.getTotalScore(selectedStudents) + Constant.SEPARATOR
-                + "全班总分中位数：" + klass.getMedianScore(selectedStudents) + Constant.SEPARATOR;
-    }
+//    public String generateScoreList(ArrayList<String> studentIds) {
+//        ArrayList<Student> selectedStudents = (ArrayList<Student>) klass.getSelectedStudents(studentIds);
+//
+//
+//        String scoreListText = "成绩单" + Constant.SEPARATOR
+//                + "姓名|数学|语文|英语|编程|平均分|总分" + Constant.SEPARATOR
+//                + "========================" + Constant.SEPARATOR;
+//
+//        return scoreListText + buildScoreList(selectedStudents)
+//                + "========================" + Constant.SEPARATOR
+//                + "全班总平均分：" + klass.getTotalScore(selectedStudents) + Constant.SEPARATOR
+//                + "全班总分中位数：" + klass.getMedianScore(selectedStudents) + Constant.SEPARATOR;
+//    }
 }
 

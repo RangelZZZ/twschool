@@ -30,17 +30,17 @@ public class Service {
         }
 
     }
-
-    public static void printStudentScoreList(String inputStudentIds) {
-        if (!ParseUtil.judgeStudentInputIdsFormat(inputStudentIds)) {
-            System.out.println(Constant.PrintStudentScorePromptInformationWhenInputErr);
-            Scanner sc = new Scanner(System.in);
-            printStudentScoreList(sc.next());
-        } else {
-            ArrayList<String> studentIds = ParseUtil.extractStudentIds(inputStudentIds);
-
-            Report report = new Report(klass);
-            System.out.println(report.generateScoreList(studentIds));
-        }
-    }
+//
+//    public static void printStudentScoreList(String inputStudentIds) {
+//        if (!ParseUtil.judgeStudentInputIdsFormat(inputStudentIds)) {
+//            System.out.println(Constant.PrintStudentScorePromptInformationWhenInputErr);
+//            Scanner sc = new Scanner(System.in);
+//            printStudentScoreList(sc.next());
+//        } else {
+//            ArrayList<String> studentIds = ParseUtil.extractStudentIds(inputStudentIds);
+//
+//            Report report = new Report(klass);
+//            System.out.println(report.generateScoreList(studentIds));
+//        }
+//    }
 }
