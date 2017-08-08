@@ -13,15 +13,15 @@ public class ReportBuilderTest {
     @Test
     public void should_calculate_all_student_total_score_and_median_score() throws Exception {
 
-        List<ReportItem> reportItemList = new ArrayList<ReportItem>();
-        ReportItem reportItem1 = new ReportItem(new Student("guoru", "001", 100, 100, 100, 100));
-        ReportItem reportItem2 = new ReportItem(new Student("guoru", "002", 100, 100, 100, 100));
-        reportItemList.add(reportItem1);
-        reportItemList.add(reportItem2);
+        List<Student> studentList = new ArrayList<Student>();
+        Student student1 = new Student("guoru", "001", 100, 100, 100, 100);
+        Student student2 = new Student("guoru", "002", 100, 100, 100, 100);
+        studentList.add(student1);
+        studentList.add(student2);
 
-        ReportBuilder reportBuilder = new ReportBuilder(reportItemList);
+        Report reportBuilder = new Report(studentList);
 
-        assertThat(reportBuilder.getReportTotalScore(), is(800));
+        assertThat(reportBuilder.getTotalScore(), is(800));
         assertThat(reportBuilder.getMedianScore(), is(400));
     }
 }

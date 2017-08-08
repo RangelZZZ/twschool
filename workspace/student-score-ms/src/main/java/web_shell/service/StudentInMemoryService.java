@@ -4,6 +4,7 @@ import core.Student;
 import core.Class;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,5 +23,10 @@ public class StudentInMemoryService implements StudentService {
         }
         klass.addStudent(student);
         return true;
+    }
+
+    @Override
+    public List<Student> getSelectStudents(ArrayList<String> studentIds) {
+        return klass.getSelectedStudents(studentIds);
     }
 }
