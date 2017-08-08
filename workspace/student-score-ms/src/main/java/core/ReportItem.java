@@ -59,4 +59,11 @@ public class ReportItem {
         this.name = name;
     }
 
+    public int getTotalScore() {
+        return getChineseScore() + getEnglishScore() + getMathScore() + getProgramScore();
+    }
+
+    public int getAverageScore() {
+        return getTotalScore() / 4;
+    }
 }
