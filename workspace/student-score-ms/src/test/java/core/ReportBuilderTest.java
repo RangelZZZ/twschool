@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class ReportBuilderTest {
 
     @Test
-    public void should_calculate_all_student_total_score() throws Exception {
+    public void should_calculate_all_student_total_score_and_median_score() throws Exception {
 
         List<ReportItem> reportItemList = new ArrayList<ReportItem>();
         ReportItem reportItem1 = new ReportItem(new Student("guoru", "001", 100, 100, 100, 100));
@@ -22,6 +22,6 @@ public class ReportBuilderTest {
         ReportBuilder reportBuilder = new ReportBuilder(reportItemList);
 
         assertThat(reportBuilder.getReportTotalScore(), is(800));
-
+        assertThat(reportBuilder.getMedianScore(), is(400));
     }
 }
