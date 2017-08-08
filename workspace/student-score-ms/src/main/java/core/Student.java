@@ -47,12 +47,5 @@ public class Student {
         return programScore;
     }
 
-    public int getTotalScore() {
-        return getChineseScore() + getEnglishScore() + getMathScore() + getProgramScore();
-    }
-
-    public int getAverageScore() {
-        return getTotalScore() / 4;
-    }
 
 }
