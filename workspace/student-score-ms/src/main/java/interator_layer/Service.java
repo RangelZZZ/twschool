@@ -1,7 +1,7 @@
 package interator_layer;
 
 import core.Class;
-//import core.Report;
+//import core.ReportItem;
 import core.Student;
 import util.Constant;
 import util.ParseUtil;
@@ -39,7 +39,7 @@ public class Service {
 //        } else {
 //            ArrayList<String> studentIds = ParseUtil.extractStudentIds(inputStudentIds);
 //
-//            Report report = new Report(klass);
+//            ReportItem report = new ReportItem(klass);
 //            System.out.println(report.generateScoreList(studentIds));
 //        }
 //    }
