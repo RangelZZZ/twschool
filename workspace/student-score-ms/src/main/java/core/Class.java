@@ -9,6 +9,14 @@ public class Class {
 
     private List<Student> students = new ArrayList<>();
 
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public Class() {
+
+    }
+
     public List<Student> addStudent(Student student) {
 
         students.add(student);
