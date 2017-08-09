@@ -1,4 +1,5 @@
 function addStudent(studentInformation) {
+    const student = {};
     studentInformation.forEach(item => student[item.name] = item.value);
 
     $.ajax({
@@ -6,6 +7,7 @@ function addStudent(studentInformation) {
         url: "http://localhost:8080/students",
         contentType: "application/json",
         data: JSON.stringify(student),
+        dataType: "json",
         statusCode: {
             201: function () {
                 alert("添加成功");
@@ -20,7 +22,7 @@ function addStudent(studentInformation) {
 $(document).ready(function () {
     $("#student-score-form").validate({
         rules: {
-            username: "required",
+            name: "required",
             mathScore: {
                 required: true,
                 min: 0,
