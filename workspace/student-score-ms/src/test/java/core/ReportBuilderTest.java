@@ -19,9 +19,10 @@ public class ReportBuilderTest {
         studentList.add(student1);
         studentList.add(student2);
 
-        Report reportBuilder = new Report(studentList);
+        Report report = new Report();
+        report.createItemList(studentList);
 
-        assertThat(reportBuilder.getTotalScore(), is(800));
-        assertThat(reportBuilder.getMedianScore(), is(400));
+        assertThat(report.getTotalScore(), is(800));
+        assertThat(report.getMedianScore(), is(400));
     }
 }

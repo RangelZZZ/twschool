@@ -1,9 +1,7 @@
 package web_shell.service;
 
-import core.Report;
-
-import java.util.List;
+import java.util.Map;
 
 public interface ReportService {
-     Report generateReport(String ids);
+     Map generateReport(String ids);
 }

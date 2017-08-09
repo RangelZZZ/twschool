@@ -5,12 +5,13 @@ import java.util.stream.Collectors;
 
 public class Report {
 
-    private final List<ReportItem> itemList;
+    private List<ReportItem> itemList;
 
-    public Report(List<Student> students) {
+    public List<ReportItem> createItemList(List<Student> students) {
         itemList = students.stream()
                 .map(student -> new ReportItem(student))
                 .collect(Collectors.toList());
+        return itemList;
     }
 
     public List<ReportItem> getItemList() {

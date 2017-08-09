@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import web_shell.service.ReportService;
 
 import javax.websocket.server.PathParam;
+import java.util.Map;
 
 @RestController
 @RequestMapping("reports")
@@ -23,10 +24,10 @@ public class ReportController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Report> addStudent(@PathParam("studentIds") String studentIds) {
-        Report report = reportService.generateReport(studentIds);
+    public ResponseEntity<Map> addStudent(@PathParam("studentIds") String studentIds) {
+        Map reportList = reportService.generateReport(studentIds);
 
-        return new ResponseEntity<Report>(report, HttpStatus.OK);
+        return new ResponseEntity<Map>(reportList, HttpStatus.OK);
 
     }
 }
