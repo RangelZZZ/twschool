@@ -1,6 +1,6 @@
 package web_shell.controller;
 
-import core.Student;
+import core.StudentInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,21 +9,21 @@ import web_shell.service.StudentService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("students")
-public class StudentController {
-
+@RequestMapping("studentInfo")
+public class StudentInfoController {
     private StudentService studentService;
 
     @Autowired
-    public StudentController(StudentService studentService) {
+    public StudentInfoController(StudentService studentService) {
         this.studentService = studentService;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<HttpStatus> addStudent(@RequestBody Student student) {
-        if (studentService.addStudent(student)) {
-            return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
-        }
-        return new ResponseEntity<HttpStatus>(HttpStatus.CONFLICT);
+    public ResponseEntity<HttpStatus> addStudentInformation(@RequestBody StudentInfo studentInfo) {
+
+        studentService.addStudentInformation(studentInfo);
+
+        return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
     }
+
 }

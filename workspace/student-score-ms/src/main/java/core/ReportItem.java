@@ -1,6 +1,15 @@
 package core;
 
 public class ReportItem {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String id;
     private String name;
     private int mathScore;
     private int englishScore;
@@ -13,6 +22,7 @@ public class ReportItem {
         this.chineseScore = student.getChineseScore();
         this.englishScore = student.getEnglishScore();
         this.programScore = student.getProgramScore();
+        this.id = student.getId();
     }
 
     public int getChineseScore() {

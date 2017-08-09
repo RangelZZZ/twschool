@@ -8,6 +8,7 @@ import static java.util.stream.Collectors.toList;
 public class Class {
 
     private List<Student> students = new ArrayList<>();
+    private List<StudentInfo> studentInfos = new ArrayList<>();
 
     public List<Student> getStudents() {
         return students;
@@ -36,6 +37,12 @@ public class Class {
         }
 
         return true;
+    }
+
+    public List<StudentInfo> addStudentInfo(StudentInfo studentInfo){
+        studentInfos.add(studentInfo);
+
+        return studentInfos;
     }
 }
 
