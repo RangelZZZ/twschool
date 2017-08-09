@@ -1,5 +1,6 @@
 function addStudent(studentInformation) {
-    console.log(studentInformation);
+    const student = {};
+     studentInformation.forEach(item => student[item.name] = item.value);
 }
 
 $(document).ready(function () {
@@ -53,9 +54,8 @@ $(document).ready(function () {
 
         submitHandler: function (form) {
             event.preventDefault();
-            const studentInformation = $("#student-form").serializeArray();
+            const studentInformation = $("#student-score-form").serializeArray();
             addStudent(studentInformation);
-            form.submit();
         }
     });
 
