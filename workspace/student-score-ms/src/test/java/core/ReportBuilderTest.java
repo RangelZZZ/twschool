@@ -13,9 +13,9 @@ public class ReportBuilderTest {
     @Test
     public void should_calculate_all_student_total_score_and_median_score() throws Exception {
 
-        List<Student> studentList = new ArrayList<Student>();
-        Student student1 = new Student("guoru", "001", 100, 100, 100, 100);
-        Student student2 = new Student("guoru", "002", 100, 100, 100, 100);
+        List<Grade> studentList = new ArrayList<Grade>();
+        Grade student1 = new Grade("guoru", "001", 100, 100, 100, 100);
+        Grade student2 = new Grade("guoru", "002", 100, 100, 100, 100);
         studentList.add(student1);
         studentList.add(student2);
 

@@ -1,6 +1,6 @@
 package web_shell.service;
 
-import core.Student;
+import core.Grade;
 import core.Class;
 import core.StudentInfo;
 import org.springframework.stereotype.Service;
@@ -14,16 +14,16 @@ public class StudentInMemoryService implements StudentService {
     private Class klass = new Class();
 
     @Override
-    public boolean addStudent(Student student) {
+    public boolean addStudentGrade(Grade studentGrade) {
 
-        if (klass.addStudent(student) == null) {
+        if (klass.addStudentGrade(studentGrade) == null) {
             return false;
         }
         return true;
     }
 
     @Override
-    public List<Student> selectStudents(ArrayList<String> studentIds) {
+    public List<Grade> selectStudents(ArrayList<String> studentIds) {
         return klass.selectStudents(studentIds);
     }
 

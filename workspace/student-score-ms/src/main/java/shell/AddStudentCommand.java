@@ -11,6 +11,6 @@ import java.util.Scanner;
 //    public void handleAddStudent() {
 //        System.out.println(Constant.AddStudentPromptInformation);
 //        Scanner sc = new Scanner(System.in);
-//        Service.addStudent(sc.next());
+//        Service.addStudentGrade(sc.next());
 //    }
 //}

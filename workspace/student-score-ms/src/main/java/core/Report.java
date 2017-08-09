@@ -7,7 +7,7 @@ public class Report {
 
     private List<ReportItem> itemList;
 
-    public List<ReportItem> createItemList(List<Student> students) {
+    public List<ReportItem> createItemList(List<Grade> students) {
         itemList = students.stream()
                 .map(student -> new ReportItem(student))
                 .collect(Collectors.toList());

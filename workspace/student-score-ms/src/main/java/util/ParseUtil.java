@@ -1,6 +1,6 @@
 package util;
 
-import core.Student;
+import core.Grade;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,12 +17,12 @@ public class ParseUtil {
         return studentInput.matches(studentInputFormat);
     }
 
-    public static Student extractStudentInformation(String studentInput) {
+    public static Grade extractStudentInformation(String studentInput) {
         Pattern pattern = Pattern.compile(studentInputFormat);
         Matcher matcher = pattern.matcher(studentInput);
 
         if (matcher.matches()) {
-            return new Student(matcher.group(1), matcher.group(2), Integer.parseInt(matcher.group(3)),
+            return new Grade(matcher.group(1), matcher.group(2), Integer.parseInt(matcher.group(3)),
                     Integer.parseInt(matcher.group(4)), Integer.parseInt(matcher.group(5)), Integer.parseInt(matcher.group(6)));
         }
 

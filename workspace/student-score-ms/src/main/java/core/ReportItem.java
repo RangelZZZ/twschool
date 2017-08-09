@@ -16,7 +16,7 @@ public class ReportItem {
     private int programScore;
     private int chineseScore;
 
-    public ReportItem(Student student) {
+    public ReportItem(Grade student) {
         this.name = student.getName();
         this.mathScore = student.getMathScore();
         this.chineseScore = student.getChineseScore();

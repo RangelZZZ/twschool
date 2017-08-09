@@ -1,6 +1,6 @@
 package web_shell.controller;
 
-import core.Student;
+import core.Grade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +20,8 @@ public class StudentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<HttpStatus> addStudent(@RequestBody Student student) {
-        if (studentService.addStudent(student)) {
+    public ResponseEntity<HttpStatus> addStudentGrade(@RequestBody Grade studentGrade) {
+        if (studentService.addStudentGrade(studentGrade)) {
             return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
         }
         return new ResponseEntity<HttpStatus>(HttpStatus.CONFLICT);

@@ -7,14 +7,14 @@ public class Service {
 
 //    public static Class klass = new Class();
 
-//    public static void addStudent(String studentInformation) {
+//    public static void addStudentGrade(String studentInformation) {
 //        if (!ParseUtil.judgeStudentInputFormat(studentInformation)) {
 //            Scanner sc = new Scanner(System.in);
-//            addStudent(sc.next());
+//            addStudentGrade(sc.next());
 //
 //        } else {
-//            Student student = ParseUtil.extractStudentInformation(studentInformation);
-//            klass.addStudent(student);
+//            Grade student = ParseUtil.extractStudentInformation(studentInformation);
+//            klass.addStudentGrade(student);
 //
 //            String addStudentPromptionInformation = "学生" + student.getName() + "的成绩被添加\n";
 //            System.out.println(addStudentPromptionInformation);

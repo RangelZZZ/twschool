@@ -22,7 +22,7 @@ public class StudentInfo {
     }
 
     public StudentInfo() {
-        
+
     }
 
     public String getName() {
