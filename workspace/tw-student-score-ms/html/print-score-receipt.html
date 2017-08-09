@@ -20,6 +20,7 @@
                     <td>${totalScore}</td>
                     <td>${averageScore}</td>
                </tr>
+
     </script>
 
     <script id="totalScoreTemplete" type="text/x-jquery-tmpl">
@@ -31,6 +32,7 @@
         <td>中位分</td>
         <td colspan= "7">${medianScore}</td>
         </tr>
+
 
 
     </script>
@@ -51,33 +53,39 @@
             <a href="./search-student.html">查询信息</a>
 
         </div>
+
         <div class="nav-item">
-            <a href="./print-score-receipt.html">打印成绩</a>
+            <a href="add-student-score.html">添加成绩</a>
         </div>
 
-        <div class="score-list-receipt">
-            <h2>您要查询的学生成绩单</h2>
-            <div class="score-list">
-                <table class="table table-hover">
-
-                    <tbody id="rows">
-                    <tr>
-                        <td>姓名</td>
-                        <td>学号</td>
-                        <td>数学</td>
-                        <td>语文</td>
-                        <td>英语</td>
-                        <td>编程</td>
-                        <td>总分</td>
-                        <td>平均分</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-            </div>
-
+        <div class="nav-item">
+            <a href="print-score-receipt.html">打印成绩</a>
         </div>
     </div>
+
+    <div class="score-list-receipt">
+        <h2>您要查询的学生成绩单</h2>
+        <div class="score-list">
+            <table class="table table-hover">
+
+                <tbody id="rows">
+                <tr>
+                    <td>姓名</td>
+                    <td>学号</td>
+                    <td>数学</td>
+                    <td>语文</td>
+                    <td>英语</td>
+                    <td>编程</td>
+                    <td>总分</td>
+                    <td>平均分</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>
 </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
