@@ -1,6 +1,20 @@
 function addStudent(studentInformation) {
-    const student = {};
-     studentInformation.forEach(item => student[item.name] = item.value);
+    studentInformation.forEach(item => student[item.name] = item.value);
+
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/students",
+        contentType: "application/json",
+        data: JSON.stringify(student),
+        statusCode: {
+            201: function () {
+                alert("添加成功");
+            },
+            409: function () {
+                alert("该学生已添加");
+            }
+        }
+    });
 }
 
 $(document).ready(function () {

@@ -14,12 +14,13 @@ import java.util.Map;
 @Service
 public class ReportInMemoryService implements ReportService {
 
+    private Report report = new Report();
+
     @Autowired
     private StudentService studentService;
 
     @Override
     public Map generateReport(String studentIds) {
-        Report report = new Report();
         ArrayList<String> selectedStudentIds = ParseUtil.extractStudentIds(studentIds);
         List<ReportItem> reportItems = report.createItemList(studentService.selectStudents(selectedStudentIds));
 

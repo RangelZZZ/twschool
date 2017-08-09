@@ -4,6 +4,7 @@ import core.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import javax.websocket.server.PathParam;
 import java.util.Map;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("reports")
 public class ReportController {
 
@@ -24,7 +26,7 @@ public class ReportController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Map> addStudent(@PathParam("studentIds") String studentIds) {
+    public ResponseEntity<Map> generateReport(@PathParam("studentIds") String studentIds) {
         Map reportList = reportService.generateReport(studentIds);
 
         return new ResponseEntity<Map>(reportList, HttpStatus.OK);

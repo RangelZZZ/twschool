@@ -47,4 +47,7 @@ public class Student {
         return programScore;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }

@@ -18,20 +18,15 @@ public class Class {
     }
 
     public List<Student> addStudent(Student student) {
-
-        for (Student student1 : students) {
-            if (student1.getId().equals(student.getId())) {
-                return null;
-            }
-        }
+        student.setId((String.valueOf(students.size() + 1)));
         students.add(student);
-
         return students;
     }
 
     public List<Student> selectStudents(ArrayList<String> studentIds) {
+        students = students.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
 
-        return students.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
+        return students;
     }
 
     private boolean isExits(ArrayList<String> studentIds, Student stu) {
