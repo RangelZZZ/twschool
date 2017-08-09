@@ -1,6 +1,6 @@
 package core;
 
-public class StudentInfo {
+public class Student {
     private String name;
     private String studentId;
     private int klass;
@@ -10,7 +10,7 @@ public class StudentInfo {
     private String nativePlace;
     private String grender;
 
-    public StudentInfo(String name, String studentId, int klass, String email, String personalId, String mobilePhone, String nativePlace, String grender) {
+    public Student(String name, String studentId, int klass, String email, String personalId, String mobilePhone, String nativePlace, String grender) {
         this.name = name;
         this.studentId = studentId;
         this.klass = klass;
@@ -21,7 +21,7 @@ public class StudentInfo {
         this.grender = grender;
     }
 
-    public StudentInfo() {
+    public Student() {
 
     }
 

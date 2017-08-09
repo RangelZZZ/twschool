@@ -40,4 +40,11 @@ public class Report {
                     sortedItems.get(sortedItems.size() / 2).getTotalScore()) / 2;
         }
     }
+
+    public List<ReportItem> getAllItems(List<Grade> studentGrades) {
+        itemList = studentGrades.stream()
+                .map(student -> new ReportItem(student))
+                .collect(Collectors.toList());
+        return itemList;
+    }
 }

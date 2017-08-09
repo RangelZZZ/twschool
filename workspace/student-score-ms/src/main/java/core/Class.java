@@ -7,10 +7,14 @@ import static java.util.stream.Collectors.toList;
 
 public class Class {
 
-    private List<Grade> students = new ArrayList<>();
-    private List<StudentInfo> studentInfos = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
+    private List<Grade> studentGrades = new ArrayList<>();
 
-    public List<Grade> getStudents() {
+    public List<Grade> getStudentGrades() {
+        return studentGrades;
+    }
+
+    public List<Student> getStudents() {
         return students;
     }
 
@@ -18,20 +22,24 @@ public class Class {
 
     }
 
-    public List<Grade> addStudentGrade(Grade student) {
-        student.setId((String.valueOf(students.size() + 1)));
-        students.add(student);
-        return students;
+    public boolean addStudentGrade(Grade studentGrade, int id) {
+        for (Student student : students) {
+            if (student.getStudentId().equals(String.valueOf(id))) {
+                studentGrades.add(studentGrade);
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Grade> selectStudents(ArrayList<String> studentIds) {
-        students = students.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
+        studentGrades = studentGrades.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
 
-        return students;
+        return studentGrades;
     }
 
     private boolean isExits(ArrayList<String> studentIds, Grade stu) {
-        String id = studentIds.stream().filter(s -> s.equals(stu.getId())).findAny().orElse(null);
+        String id = studentIds.stream().filter(s -> s.equals(stu.getStudentId())).findAny().orElse(null);
         if (id == null) {
             return false;
         }
@@ -39,10 +47,35 @@ public class Class {
         return true;
     }
 
-    public List<StudentInfo> addStudentInfo(StudentInfo studentInfo){
-        studentInfos.add(studentInfo);
+    public String addStudent(Student student) {
+        student.setStudentId((String.valueOf(students.size() + 1)));
+        students.add(student);
 
-        return studentInfos;
+        return student.getStudentId();
+    }
+
+    public Student getStudentsById(int id) {
+        for (Student student : students) {
+            if (student.getStudentId().equals(String.valueOf(id))) {
+                return student;
+            }
+        }
+
+        return null;
+    }
+
+    public boolean updateStudentGrade(Grade studentGrade, int id) {
+        for (Grade sg : studentGrades)
+            if (studentGrade.getStudentId().equals(String.valueOf(id))) {
+                sg.setChineseScore(studentGrade.getChineseScore());
+                sg.setEnglishScore(studentGrade.getEnglishScore());
+                sg.setMathScore(studentGrade.getChineseScore());
+                sg.setProgramScore(studentGrade.getProgramScore());
+
+                return true;
+            }
+
+        return false;
     }
 }
 

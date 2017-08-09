@@ -2,7 +2,7 @@ package core;
 
 public class Grade {
     private String name;
-    private String id;
+    private String studentId;
     private int mathScore = 0;
     private int chineseScore = 0;
     private int englishScore = 0;
@@ -14,7 +14,7 @@ public class Grade {
 
     public Grade(String name, String id, int mathScore, int chineseScore, int englishScore, int programScore) {
         this.name = name;
-        this.id = id;
+        this.studentId = id;
         this.mathScore = mathScore;
         this.chineseScore = chineseScore;
         this.englishScore = englishScore;
@@ -27,8 +27,8 @@ public class Grade {
         return name;
     }
 
-    public String getId() {
-        return id;
+    public String getStudentId() {
+        return studentId;
     }
 
     public int getMathScore() {
@@ -47,7 +47,28 @@ public class Grade {
         return programScore;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStudentId(String id) {
+        this.studentId = id;
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
+    }
+
+    public void setMathScore(int mathScore) {
+        this.mathScore = mathScore;
+    }
+
+    public void setChineseScore(int chineseScore) {
+        this.chineseScore = chineseScore;
+    }
+
+    public void setEnglishScore(int englishScore) {
+        this.englishScore = englishScore;
+    }
+
+    public void setProgramScore(int programScore) {
+        this.programScore = programScore;
     }
 }

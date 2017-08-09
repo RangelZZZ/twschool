@@ -11,14 +11,16 @@
     <script id="myTemplate" type="text/x-jquery-tmpl">
 
               <tr id="table-display">
-                    <td>${name}</td>
-                    <td>${id}</td>
-                    <td>${mathScore}</td>
-                    <td>${chineseScore}</td>
-                    <td>${englishScore}</td>
-                    <td>${programScore}</td>
-                    <td>${totalScore}</td>
-                    <td>${averageScore}</td>
+                    <td class="name1" name="name1">${name}</td>
+                    <td class="studentId">${studentId}</td>
+                    <td class="mathScore">${mathScore}</td>
+                    <td class="chineseScore">${chineseScore}</td>
+                    <td class="englishScore">${englishScore}</td>
+                    <td class="programScore">${programScore}</td>
+                    <td class="totalScore">${totalScore}</td>
+                    <td class="averageScore">${averageScore}</td>
+                    <td><a data-toggle="modal" href="#mymodal">
+                    <i class="glyphicon glyphicon-pencil"></i></a></td>
                </tr>
     </script>
 
@@ -31,9 +33,6 @@
         <td>中位分</td>
         <td colspan= "7">${medianScore}</td>
         </tr>
-
-
-
 
     </script>
 </head>
@@ -82,6 +81,7 @@
                     <td>编程</td>
                     <td>总分</td>
                     <td>平均分</td>
+                    <td>修改</td>
                 </tr>
                 </tbody>
             </table>
@@ -89,6 +89,67 @@
         </div>
 
     </div>
+
+
+    <div class="modal fade bs-example-modal-lg" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">修改学生成绩</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="model-form">
+                        <div class="input-group">
+                            <span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                            <input type="text" class="form-control username" placeholder="name" name="name"
+                                   aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                            <input type="text" class="form-control" placeholder="studentId" name="studentId"
+                                   aria-describedby="basic-addon1">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon">数学成绩</span>
+                            <input type="text" class="form-control" placeholder="mathScore" name="mathScore"
+                                   aria-describedby="basic-addon1">
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon">语文成绩</span>
+                            <input type="text" class="form-control" placeholder="chineseScore" name="chineseScore"
+                                   aria-describedby="basic-addon1">
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon">英语成绩</span>
+                            <input type="text" class="form-control" placeholder="englishScore" name="englishScore"
+                                   aria-describedby="basic-addon1">
+                        </div>
+
+
+                        <div class="input-group">
+                            <span class="input-group-addon">编程成绩</span>
+                            <input type="text" class="form-control" placeholder="programScore" name="programScore"
+                                   aria-describedby="basic-addon1">
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-default submit-button">提交</button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 </div>
 </body>

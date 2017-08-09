@@ -37,7 +37,7 @@ public class ParseUtilTest {
         Grade student = ParseUtil.extractStudentInformation(studentInput);
 
         assertThat(student.getName(), is("guoru"));
-        assertThat(student.getId(), is("001"));
+        assertThat(student.getStudentId(), is("001"));
         assertThat(student.getMathScore(), is(97));
         assertThat(student.getChineseScore(), is(95));
         assertThat(student.getEnglishScore(), is(76));

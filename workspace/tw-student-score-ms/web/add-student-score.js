@@ -1,19 +1,21 @@
-function addStudent(studentInformation) {
-    const student = {};
-    studentInformation.forEach(item => student[item.name] = item.value);
+function addStudent(studentScoreInformation) {
+    let score = {};
+    studentScoreInformation.forEach(item => score[item.name] = item.value);
+    console.log(score);
+    let url = "http://localhost:8080/students/" + score.studentId + "/grades";
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/students",
+        url: url,
         contentType: "application/json",
-        data: JSON.stringify(student),
+        data: JSON.stringify(score),
         dataType: "json",
         statusCode: {
             201: function () {
                 alert("添加成功");
             },
-            409: function () {
-                alert("该学生已添加");
+            404: function () {
+                alert("此学生不存在，无法添加成绩");
             }
         }
     });
@@ -70,8 +72,8 @@ $(document).ready(function () {
 
         submitHandler: function (form) {
             event.preventDefault();
-            const studentInformation = $("#student-score-form").serializeArray();
-            addStudent(studentInformation);
+            const studentScoreInformation = $("#student-score-form").serializeArray();
+            addStudent(studentScoreInformation);
         }
     });
 

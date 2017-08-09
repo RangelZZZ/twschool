@@ -1,15 +1,8 @@
 package core;
 
 public class ReportItem {
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    private String id;
+    private String studentId;
     private String name;
     private int mathScore;
     private int englishScore;
@@ -22,7 +15,7 @@ public class ReportItem {
         this.chineseScore = student.getChineseScore();
         this.englishScore = student.getEnglishScore();
         this.programScore = student.getProgramScore();
-        this.id = student.getId();
+        this.studentId = student.getStudentId();
     }
 
     public int getChineseScore() {
@@ -75,5 +68,13 @@ public class ReportItem {
 
     public int getAverageScore() {
         return getTotalScore() / 4;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 }

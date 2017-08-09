@@ -1,7 +1,9 @@
 package web_shell.service;
 
+import core.Grade;
 import core.Report;
 import core.ReportItem;
+import core.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import util.ParseUtil;
@@ -26,6 +28,20 @@ public class ReportInMemoryService implements ReportService {
 
         Map hashMap = new HashMap();
         hashMap.put("reportItems", reportItems);
+        hashMap.put("totalScore", report.getTotalScore());
+        hashMap.put("medianScore", report.getMedianScore());
+
+        Map reportList = hashMap;
+
+        return reportList;
+    }
+
+    @Override
+    public Map getAllReportItem() {
+        List<Grade> studentGrades = new ArrayList<>();
+
+        Map hashMap = new HashMap();
+        hashMap.put("reportItems",  report.getAllItems(studentGrades));
         hashMap.put("totalScore", report.getTotalScore());
         hashMap.put("medianScore", report.getMedianScore());
 
