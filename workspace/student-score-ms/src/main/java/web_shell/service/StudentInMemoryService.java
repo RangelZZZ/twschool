@@ -27,6 +27,6 @@ public class StudentInMemoryService implements StudentService {
 
     @Override
     public List<Student> getSelectStudents(ArrayList<String> studentIds) {
-        return klass.getSelectedStudents(studentIds);
+        return klass.selectStudents(studentIds);
     }
 }

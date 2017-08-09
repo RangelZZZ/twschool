@@ -29,6 +29,6 @@ public class ClassTest {
         studentListIds.add("001");
         studentListIds.add("002");
 
-        assertThat(klass.getSelectedStudents(studentListIds).size(), is(2));
+        assertThat(klass.selectStudents(studentListIds).size(), is(2));
     }
 }

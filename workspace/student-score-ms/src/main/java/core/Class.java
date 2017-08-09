@@ -24,10 +24,9 @@ public class Class {
         return students;
     }
 
-    public List<Student> getSelectedStudents(ArrayList<String> studentIds) {
-        List<Student> selectedStudents = students.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
+    public List<Student> selectStudents(ArrayList<String> studentIds) {
 
-        return selectedStudents;
+        return students.stream().filter(stu -> isExits(studentIds, stu)).collect(toList());
     }
 
     private boolean isExits(ArrayList<String> studentIds, Student stu) {
