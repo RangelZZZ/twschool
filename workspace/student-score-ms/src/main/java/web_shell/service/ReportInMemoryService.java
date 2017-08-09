@@ -29,6 +29,8 @@ public class ReportInMemoryService implements ReportService {
         hashMap.put("totalScore", report.getTotalScore());
         hashMap.put("medianScore", report.getMedianScore());
 
-        return hashMap;
+        Map reportList = hashMap;
+
+        return reportList;
     }
 }

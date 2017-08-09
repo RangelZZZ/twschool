@@ -1,16 +1,21 @@
 $(function () {
 
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:8080/reports?studentIds=1,2,3",
-        contentType: "application/json",
-        dataTye: "json",
-        statusCode: {
-            200: function (data) {
-                displaySelectScoreStudent(data);
+    $(".click").click(function () {
+        let studentIds = $(".search-input").val();
+        console.log(studentIds);
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/reports?studentIds=" + studentIds,
+            contentType: "application/json",
+            dataTye: "json",
+            statusCode: {
+                200: function (data) {
+                    displaySelectScoreStudent(data);
+                }
             }
-        }
+        });
     });
+
 });
 
 function displaySelectScoreStudent(studentScoreList) {
