@@ -3,6 +3,7 @@ package web_shell.controller;
 import core.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web_shell.service.StudentService;
 
@@ -19,10 +20,10 @@ public class studentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public HttpStatus addStudent(@RequestBody Student student) {
+    public ResponseEntity<HttpStatus> addStudent(@RequestBody Student student) {
         if (studentService.addStudent(student)) {
-            return HttpStatus.CREATED;
+            return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
         }
-        return HttpStatus.CONFLICT;
+        return new ResponseEntity<HttpStatus>(HttpStatus.CONFLICT);
     }
 }

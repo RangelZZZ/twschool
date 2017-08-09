@@ -21,7 +21,7 @@ public class ReportInMemoryService implements ReportService {
     public Map generateReport(String studentIds) {
         Report report = new Report();
         ArrayList<String> selectedStudentIds = ParseUtil.extractStudentIds(studentIds);
-        List<ReportItem> reportItems = report.createItemList(studentService.getSelectStudents(selectedStudentIds));
+        List<ReportItem> reportItems = report.createItemList(studentService.selectStudents(selectedStudentIds));
 
         Map hashMap = new HashMap();
         hashMap.put("reportItems", reportItems);

@@ -14,19 +14,15 @@ public class StudentInMemoryService implements StudentService {
 
     @Override
     public boolean addStudent(Student student) {
-        List<Student> students = klass.getStudents();
 
-        for (Student student1 : students) {
-            if (student1.getId() == student.getId()) {
-                return false;
-            }
+        if (klass.addStudent(student) == null) {
+            return false;
         }
-        klass.addStudent(student);
         return true;
     }
 
     @Override
-    public List<Student> getSelectStudents(ArrayList<String> studentIds) {
+    public List<Student> selectStudents(ArrayList<String> studentIds) {
         return klass.selectStudents(studentIds);
     }
 }

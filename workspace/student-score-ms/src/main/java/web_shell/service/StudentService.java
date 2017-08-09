@@ -8,5 +8,5 @@ import java.util.List;
 public interface StudentService {
     boolean addStudent(Student student);
 
-    List<Student> getSelectStudents(ArrayList<String> studentIds);
+    List<Student> selectStudents(ArrayList<String> studentIds);
 }

@@ -19,6 +19,11 @@ public class Class {
 
     public List<Student> addStudent(Student student) {
 
+        for (Student student1 : students) {
+            if (student1.getId().equals(student.getId())) {
+                return null;
+            }
+        }
         students.add(student);
 
         return students;
