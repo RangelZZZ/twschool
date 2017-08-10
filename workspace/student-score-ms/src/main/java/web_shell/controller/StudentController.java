@@ -10,7 +10,6 @@ import web_shell.service.StudentService;
 
 import java.util.List;
 
-@RestController
 @CrossOrigin("*")
 @RequestMapping("students")
 public class StudentController {
@@ -21,6 +20,7 @@ public class StudentController {
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
+
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<HttpStatus> addStudent(@RequestBody Student studentInfo) {
@@ -66,9 +66,8 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.GET, value = "/grades")
     public ResponseEntity<List> getStudentsGrades() {
 
-        return new ResponseEntity<List>((List) studentService.getAllStudentGrades(),HttpStatus.OK);
+        return new ResponseEntity<List>((List) studentService.getAllStudentGrades(), HttpStatus.OK);
     }
-
 
 
 }

@@ -1,8 +1,17 @@
 package core;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Student {
-    private String name;
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private String studentId;
+    private String name;
     private int klass;
     private String email;
     private String personalId;

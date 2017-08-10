@@ -21,8 +21,6 @@ public class Grade {
         this.programScore = programScore;
     }
 
-
-
     public String getName() {
         return name;
     }
