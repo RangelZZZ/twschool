@@ -23,7 +23,6 @@ function addStudent(studentScoreInformation) {
 
 $(document).ready(function () {
 
-
     const hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
     $(".name").val(splitHash(hashes[1]));
     $(".studentId").val(splitHash(hashes[0]));
