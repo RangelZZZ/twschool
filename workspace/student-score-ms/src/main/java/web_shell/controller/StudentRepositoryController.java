@@ -26,4 +26,13 @@ public class StudentRepositoryController {
 
         return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable("id") String studentId) {
+
+        Student student = studentRepository.findByStudentId(studentId);
+        System.out.println(student);
+
+        return new ResponseEntity<Student>((Student) student, HttpStatus.OK);
+    }
 }
