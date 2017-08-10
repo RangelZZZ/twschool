@@ -44,4 +44,9 @@ public class StudentInMemoryService implements StudentService {
         return klass.updateStudentGrade(studentGrade, id);
     }
 
+    @Override
+    public List<Grade> getAllStudentGrades() {
+        return klass.getStudentGrades();
+    }
+
 }

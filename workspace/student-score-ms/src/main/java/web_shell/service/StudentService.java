@@ -18,4 +18,6 @@ public interface StudentService {
     Boolean addStudentGrade(Grade studentGrade, int id);
 
     boolean updateStudentGrade(Grade studentGrade, int id);
+
+    List<Grade> getAllStudentGrades();
 }

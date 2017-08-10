@@ -63,5 +63,12 @@ public class StudentController {
         return new ResponseEntity<HttpStatus>(HttpStatus.NOT_FOUND);
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/grades")
+    public ResponseEntity<List> getStudentsGrades() {
+
+        return new ResponseEntity<List>((List) studentService.getAllStudentGrades(),HttpStatus.OK);
+    }
+
+
 
 }
