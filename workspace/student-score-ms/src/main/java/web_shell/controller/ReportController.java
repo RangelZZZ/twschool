@@ -28,11 +28,9 @@ public class ReportController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Map> generateReport(@PathParam("studentIds") String studentIds) {
         Map reportList = new HashMap();
-        if (studentIds.equals(String.valueOf(null))) {
-            reportList = reportService.getAllReportItem();
-        } else {
-            reportList = reportService.generateReport(studentIds);
-        }
+
+        reportList = reportService.generateReport(studentIds);
+        System.out.println(reportList);
 
         return new ResponseEntity<Map>(reportList, HttpStatus.OK);
 

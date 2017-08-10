@@ -22,6 +22,8 @@
                     <td><a data-toggle="modal" href="#mymodal">
                     <i class="glyphicon glyphicon-pencil"></i></a></td>
                </tr>
+
+
     </script>
 
     <script id="totalScoreTemplete" type="text/x-jquery-tmpl">
@@ -33,6 +35,8 @@
         <td>中位分</td>
         <td colspan= "7">${medianScore}</td>
         </tr>
+
+
 
     </script>
 </head>
@@ -95,58 +99,61 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title">修改学生成绩</h4>
                 </div>
-                <div class="modal-body">
-                    <div class="model-form">
-                        <div class="input-group">
-                            <span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
-                            <input type="text" class="form-control username" placeholder="name" name="name"
-                                   aria-describedby="basic-addon1">
+                <form id="update-model" name="update-model" method="post">
+                    <div class="modal-body">
+                        <div class="model-form">
+                            <div class="input-group">
+                                <span class="input-group-addon">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</span>
+                                <input type="text" class="form-control username" placeholder="name" name="name"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
+                                <input type="text" class="form-control" placeholder="studentId" name="studentId"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">数学成绩</span>
+                                <input type="text" class="form-control" placeholder="mathScore" name="mathScore"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon">语文成绩</span>
+                                <input type="text" class="form-control" placeholder="chineseScore" name="chineseScore"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon">英语成绩</span>
+                                <input type="text" class="form-control" placeholder="englishScore" name="englishScore"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon">编程成绩</span>
+                                <input type="text" class="form-control" placeholder="programScore" name="programScore"
+                                       aria-describedby="basic-addon1">
+                            </div>
+
+                            <button type="submit" class="btn btn-lg btn-default submit-button">提交</button>
+
+
                         </div>
-
-                        <div class="input-group">
-                            <span class="input-group-addon">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</span>
-                            <input type="text" class="form-control" placeholder="studentId" name="studentId"
-                                   aria-describedby="basic-addon1">
-                        </div>
-
-                        <div class="input-group">
-                            <span class="input-group-addon">数学成绩</span>
-                            <input type="text" class="form-control" placeholder="mathScore" name="mathScore"
-                                   aria-describedby="basic-addon1">
-                        </div>
-
-
-                        <div class="input-group">
-                            <span class="input-group-addon">语文成绩</span>
-                            <input type="text" class="form-control" placeholder="chineseScore" name="chineseScore"
-                                   aria-describedby="basic-addon1">
-                        </div>
-
-
-                        <div class="input-group">
-                            <span class="input-group-addon">英语成绩</span>
-                            <input type="text" class="form-control" placeholder="englishScore" name="englishScore"
-                                   aria-describedby="basic-addon1">
-                        </div>
-
-
-                        <div class="input-group">
-                            <span class="input-group-addon">编程成绩</span>
-                            <input type="text" class="form-control" placeholder="programScore" name="programScore"
-                                   aria-describedby="basic-addon1">
-                        </div>
-
-                        <button type="submit" class="btn btn-lg btn-default submit-button">提交</button>
-
 
                     </div>
-
-                </div>
-
+                </form>
             </div>
+
         </div>
     </div>
 

@@ -1,7 +1,7 @@
 function addStudent(studentScoreInformation) {
+
     let score = {};
     studentScoreInformation.forEach(item => score[item.name] = item.value);
-    console.log(score);
     let url = "http://localhost:8080/students/" + score.studentId + "/grades";
 
     $.ajax({
@@ -22,6 +22,12 @@ function addStudent(studentScoreInformation) {
 }
 
 $(document).ready(function () {
+
+
+    const hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    $(".name").val(splitHash(hashes[1]));
+    $(".studentId").val(splitHash(hashes[0]));
+
     $("#student-score-form").validate({
         rules: {
             name: "required",
@@ -78,3 +84,9 @@ $(document).ready(function () {
     });
 
 });
+
+
+function splitHash(hash) {
+    return hash.split("=")[1];
+
+}
