@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web_shell.repository.StudentRepository;
 
+import java.util.List;
+
 
 @RestController
 @CrossOrigin("*")
@@ -25,6 +27,12 @@ public class StudentRepositoryController {
         studentRepository.save(studentInfo);
 
         return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List> findAll() {
+
+        return new ResponseEntity<List>((List) studentRepository.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
